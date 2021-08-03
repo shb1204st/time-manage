@@ -1,24 +1,26 @@
-# README
+# アプリケーション名
+  Time Manage
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション概要
+  何時にどのような仕事をしているかを入力し、詳細内容を記載する。
+  また、コメントを残し注意点や重要なことなどを書き残していく。
 
-Things you may want to cover:
+# URL
+  https://time-manage-1204.herokuapp.com/
 
-* Ruby version
+# テスト用アカウント
+   Basic認証 ID:toshimi, PS:1204
+   ログイン   ID:       ,PS:
 
-* System dependencies
+# 利用方法
+  新規登録を行い、アカウントを作成します。
+  アカウント作成後、トップページより「時間情報登録」ボタンを押し実施した仕事内容等を入力します。
+  入力内容が円グラフとなって現れて、どの仕事にそれだけ時間を使っているかを表してくれます。
+  トップページのカレンダーの日を押すと、その日の1日の情報が表示され、また編集や削除ができます。
 
-* Configuration
+# 目指した課題解決
+  朝から晩まで仕事をしても仕事が終わらない人に対して、時間を創出できるようにし仕事を終わらせることができるようにつなげる。
+  まず、何にどれだけの時間の使っているかを把握を行います。入力している時間に、自分だけにしかできないことかや仕事のやり方について
+  工夫できることを考えコメントを残し、そのコメントを会社の人たちと共有できるようにして、誰でもできる仕事は時間がある人ができるようにする。
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 洗い出した要件
