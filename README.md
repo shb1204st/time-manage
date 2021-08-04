@@ -9,9 +9,9 @@
   https://time-manage-1204.herokuapp.com/
 
 # テスト用アカウント
-   Basic認証 ID:toshimi, PS:1204
+   Basic認証 ID:toshimi, PW:1204
    
-   ログイン   ID:       ,PS:
+   ログイン   ID:       ,PW:
 
 # 利用方法
   新規登録を行い、アカウントを作成します。
@@ -25,3 +25,49 @@
   工夫できることを考えコメントを残し、そのコメントを会社の人たちと共有できるようにして、誰でもできる仕事は時間がある人ができるようにする。
 
 # 洗い出した要件
+
+
+
+# テーブル設計
+
+## users テーブル
+
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| name               | string | null: false               |
+| kana_name          | string | null: false               |
+| department         | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+
+### association
+
+has_many :times
+has_many :comments
+
+## times テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| time_id     | integer    | null: false                    |
+| content_id  | integer    | null: false                    |
+| detail      | text       | null: false                    |
+| user        | references | null: false, foreign_key: true |
+
+### association
+
+belongs_to :user
+has_many   :comments
+
+## comments テーブル
+
+| Column  | Type       | Options           |
+| ------- | ---------- | ----------------- |
+| text    | text       |                   |
+| user    | references | foreign_key: true |
+| room    | references | foreign_key: true |
+
+### association
+
+belongs_to :user
+belongs_to :time
