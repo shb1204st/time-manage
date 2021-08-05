@@ -52,6 +52,7 @@ has_many :comments
 | time_id     | integer    | null: false                    |
 | content_id  | integer    | null: false                    |
 | detail      | text       | null: false                    |
+| start_time  | date       | null: false                    |
 | user        | references | null: false, foreign_key: true |
 
 ### association
