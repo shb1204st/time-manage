@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2021_08_05_023350) do
 
   create_table "time_contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "time_id", null: false
-    t.integer "conten_id", null: false
+    t.integer "content_id", null: false
     t.text "detail", null: false
     t.date "start_time", null: false
     t.bigint "user_id", null: false
