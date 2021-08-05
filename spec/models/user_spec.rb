@@ -13,7 +13,6 @@ RSpec.describe User, type: :model do
     end
 
     context '内容に問題がある場合' do
-
       it 'emailが空では登録できないこと' do
         @user.email = ''
         @user.valid?
