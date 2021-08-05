@@ -1,0 +1,16 @@
+<main class="main">
+  <div class="inner">
+    <% if user_signed_in? %>
+      <div class="greeting">
+        <%= link_to current_user.name + "さん", class: :greeting__link%>
+        <%= "、今日も一日頑張ろう！！" %>
+      </div>
+    <% end %>
+    <div class="card__wrapper">
+      <%= month_calendar events: @time_contents do |date, events| %>
+        <%= date.day %>
+      <% end %>
+      <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
+    </div>
+  </div>
+</main>
