@@ -1,0 +1,30 @@
+<h1>今日の仕事内容と時間</h1>
+
+<%= form_with(model: @time_content, url: time_content_index_path, local: true) do |form| %>
+
+  <div class="date">
+    <%= form.label :今日の日付 %>
+    <%= form.date_field :start_time %>
+  </div>
+
+  <div class="time">
+    <%= form.label :実施時間 %>
+    <%= form.text_field :time_id %>
+  </div>
+  
+  <div class="content">
+    <%= form.label :実施内容 %>
+    <%= form.text_field :content_id %>
+  </div>
+
+  <div class="detial">
+    <%= form.label :仕事詳細 %>
+    <%= form.text_area :detail %>
+  </div>
+
+
+  <div class="submit">
+    <%= form.submit "登録" %>
+  </div>
+
+<% end %>
