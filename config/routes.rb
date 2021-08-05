@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users', to: 'devise/registrations#new'
   end
-  root to: "times#index"
-  resources :times
+  root to: "time_content#index"
+  resources :time_content
 end
