@@ -1,0 +1,2 @@
+class TimeContent < ApplicationRecord
+end
