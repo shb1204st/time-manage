@@ -8,6 +8,6 @@ FactoryBot.define do
     password_confirmation { password }
     name                  { person.kanji }
     kana_name             { person.katakana }
-    department            { Faker::jobTitle.name }
+    department            { Faker::Company.type  }
   end
 end
