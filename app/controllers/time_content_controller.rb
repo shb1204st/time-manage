@@ -1,0 +1,2 @@
+class TimeContentController < ApplicationController
+end

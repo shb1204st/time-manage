@@ -1,0 +1,2 @@
+module TimeContentHelper
+end
