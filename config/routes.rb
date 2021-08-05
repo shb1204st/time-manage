@@ -4,4 +4,5 @@ Rails.application.routes.draw do
     get '/users', to: 'devise/registrations#new'
   end
   root to: "times#index"
+  resources :times
 end
