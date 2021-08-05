@@ -6,10 +6,17 @@
         <%= "、今日も一日頑張ろう！！" %>
       </div>
     <% end %>
+
     <div class="card__wrapper">
       <%= link_to "時間内容登録", new_time_content_path, class: :nav__btn %>
       <%= month_calendar events: @time_contents do |date, events| %>
         <%= date.day %>
+      <% end %>
+
+      <% @time_contents.each do |time_content| %>
+        <div>
+          <%= "今日の内容" %>
+        </div>
       <% end %>
       <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
     </div>
