@@ -1,0 +1,45 @@
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">ユーザー新規登録</h2>
+        <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+
+        <%= render 'shared/error_messages', model: f.object %>
+
+        <div class="field">
+          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.email_field :email, id:"user_email", autofocus: true, autocomplete: "on" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, "パスワード（半角英数字6文字以上）" %><br />
+          <%= f.password_field :password, id:"user_password", autocomplete: "off" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation, "パスワード再入力" %><br />
+          <%= f.password_field :password_confirmation, id:"user_password_confirmation", autocomplete: "off" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :name, "ユーザー名 (漢字)" %><br />
+          <%= f.text_field :name, id:"user_name" %>
+        </div>
+
+         <div class="field">
+          <%= f.label :kana_name, "カナユーザー名 (全角カタカナ)" %><br />
+          <%= f.text_field :kana_name, id:"kana_user_name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :departmemt, "部署" %><br />
+          <%= f.text_field :department, class: :form__text, id:"user_occupation" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "新規登録", class: :form__btn  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
