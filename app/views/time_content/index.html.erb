@@ -2,7 +2,7 @@
   <div class="inner">
     <% if user_signed_in? %>
       <div class="greeting">
-        <%= link_to current_user.name + "さん", class: :greeting__link%>
+        <%= link_to current_user.name + "さん", user_path(current_user.id), class: :greeting__link%>
         <%= "、今日も一日頑張ろう！！" %><br><br>
          <%= link_to "時間内容登録", new_time_content_path, class: :nav__btn %>
       </div>
