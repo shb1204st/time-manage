@@ -1,4 +1,6 @@
 class TimeContentController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+
   def index
     @time_contents = TimeContent.all
   end
