@@ -14,7 +14,7 @@ RSpec.describe TimeContent, type: :model do
 
     context '内容に問題がある場合' do
       it 'start_timeが空では登録できないこと' do
-        @time_content.start_time = ""
+        @time_content.start_time = ''
         @time_content.valid?
         expect(@time_content.errors.full_messages).to include("Start time can't be blank")
       end
@@ -40,7 +40,7 @@ RSpec.describe TimeContent, type: :model do
       it 'userが紐づいていなければ登録できないこと' do
         @time_content.user = nil
         @time_content.valid?
-        expect(@time_content.errors.full_messages).to include("User must exist")
+        expect(@time_content.errors.full_messages).to include('User must exist')
       end
     end
   end
