@@ -2,9 +2,9 @@
   <div class="inner">
     <% if user_signed_in? %>
       <div class="greeting">
-        <%= link_to current_user.name + "さん", user_path(current_user.id), class: :greeting__link%>
+        <%= current_user.name + "さん"%>
         <%= "、今日も一日頑張ろう！！" %><br><br>
-         <%= link_to "時間内容登録", new_time_content_path, class: :nav__btn %>
+         <%= link_to "時間内容登録", new_user_time_content_path(current_user.id), class: :nav__btn %>
       </div>
     <% end %>
     <%# <div class="card__wrapper"> %>

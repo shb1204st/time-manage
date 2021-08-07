@@ -143,8 +143,8 @@ a {
 .greeting{
   margin-bottom: 20px;
 }
-.greeting__link{
-  text-decoration: underline;
+/* .greeting__link{
+  text-decoration: underline; */
 }
 .page-heading {
   font-size: 30px;
