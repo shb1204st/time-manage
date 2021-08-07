@@ -2,7 +2,7 @@
   <div class="inner">
     <div class="prototype__wrapper">
       <p class="prototype__hedding">
-        <%= "プロトタイプのタイトル"%>
+        <%= "時間内容詳細"%>
       </p>
       <%# <%= link_to "by プロトタイプの投稿者", root_path, class: :prototype__user %> 
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
@@ -11,20 +11,26 @@
           <%= link_to "削除する", root_path, class: :prototype__btn %>
         </div>
       <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
-      <div class="prototype__image">
+      <%# <div class="prototype__image">
         <%= image_tag "プロトタイプの画像" %>
-      </div>
+      <%# </div> %>
       <div class="prototype__body">
         <div class="prototype__detail">
-          <p class="detail__title">キャッチコピー</p>
-          <p class="detail__message">
-            <%= "プロトタイプのキャッチコピー" %>
+          <p class="detail__title">日付</p>
+          <p class="detail__message"> 
+            <%= @time_content.start_time %>
           </p>
         </div>
         <div class="prototype__detail">
-          <p class="detail__title">コンセプト</p>
+          <p class="detail__title">時間</p>
           <p class="detail__message">
-            <%= "プロトタイプのコンセプト" %>
+            <%= @time_content.time_step.name %>
+          <p class="detail__title">内容</p>
+          <p class="detail__message">
+            <%= @time_content.content.name %>
+          <p class="detail__title">詳細</p>
+          <p class="detail__message">
+            <%= @time_content.detail %>
           </p>
         </div>
       </div>
