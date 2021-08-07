@@ -12,7 +12,7 @@
         <%= date.day %>
         <% time_contents.each do |time_content| %>
           <div>
-            <%= link_to time_content.start_time, time_content_path(time_content.id) %>
+            <%= link_to time_content.time_step.name, time_content_path(time_content.id) %>
           </div>
         <% end %>
       <% end %>
