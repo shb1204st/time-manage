@@ -17,6 +17,10 @@ class TimeContentController < ApplicationController
     else
       render :new
     end
+
+    def show
+      time_content = TimeContent.find(params[:id])
+    end
   end
 
   private
