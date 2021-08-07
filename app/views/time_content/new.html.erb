@@ -1,0 +1,31 @@
+<h1>今日の仕事内容と時間</h1>
+
+<%= form_with(model: @time_content, url: time_content_index_path, local: true) do |f| %>
+<%= render 'shared/error_messages', model: f.object %>
+
+  <div class="date">
+    <%= f.label :今日の日付 %>
+    <%= f.date_field :start_time %>
+  </div>
+
+  <div class="time">
+    <%= f.label :実施時間 %>
+    <%= f.collection_select(:time_id, TimeStep.all, :id, :name, {}) %>
+  </div>
+  
+  <div class="content">
+    <%= f.label :実施内容 %>
+    <%= f.collection_select(:content_id, Content.all, :id, :name, {}) %>
+  </div>
+
+  <div class="detial">
+    <%= f.label :仕事詳細 %>
+    <%= f.text_area :detail %>
+  </div>
+
+
+  <div class="submit">
+    <%= f.submit "登録" %>
+  </div>
+
+<% end %>

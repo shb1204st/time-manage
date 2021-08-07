@@ -1,0 +1,21 @@
+<main class="main">
+  <div class="inner">
+    <% if user_signed_in? %>
+      <div class="greeting">
+        <%= current_user.name + "さん"%>
+        <%= "、今日も一日頑張ろう！！" %><br><br>
+         <%= link_to "時間内容登録", new_time_content_path, class: :nav__btn %>
+      </div>
+    <% end %>
+    <%# <div class="card__wrapper"> %>
+      <%= month_calendar events: @time_contents do |date, time_contents| %>
+        <%= date.day %>
+        <% time_contents.each do |time_content| %>
+          <div>
+            <%= time_content.start_time %>
+          </div>
+        <% end %>
+      <% end %>
+    <%# </div> %>
+  </div>
+</main>
