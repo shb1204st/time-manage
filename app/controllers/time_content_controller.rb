@@ -1,6 +1,6 @@
 class TimeContentController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_time_content, only:[:show]
+  before_action :set_time_content, only: [:show]
   before_action :move_into_index, only: [:show]
 
   def index
@@ -35,8 +35,6 @@ class TimeContentController < ApplicationController
   end
 
   def move_into_index
-    if current_user.id != @time_content.user.id
-      redirect_to action: :index
-    end
+    redirect_to action: :index if current_user.id != @time_content.user.id
   end
 end
