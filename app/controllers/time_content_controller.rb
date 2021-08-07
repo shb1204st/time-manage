@@ -1,5 +1,7 @@
 class TimeContentController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  before_action :set_time_content, only:[:show]
+  before_action :move_into_index, only: [:show]
 
   def index
     @time_contents = TimeContent.where(user_id: current_user)
@@ -20,12 +22,21 @@ class TimeContentController < ApplicationController
   end
 
   def show
-    @time_content = TimeContent.find(params[:id])
   end
 
   private
 
   def time_content_params
     params.require(:time_content).permit(:start_time, :time_step_id, :content_id, :detail).merge(user_id: current_user.id)
+  end
+
+  def set_time_content
+    @time_content = TimeContent.find(params[:id])
+  end
+
+  def move_into_index
+    if current_user.id != @time_content.user.id
+      redirect_to action: :index
+    end
   end
 end
