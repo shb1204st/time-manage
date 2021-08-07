@@ -17,15 +17,15 @@ class TimeContentController < ApplicationController
     else
       render :new
     end
+  end
 
-    def show
-      time_content = TimeContent.find(params[:id])
-    end
+  def show
+    @time_content = TimeContent.find(params[:id])
   end
 
   private
 
   def time_content_params
-    params.require(:time_content).permit(:start_time, :time_id, :content_id, :detail).merge(user_id: current_user.id)
+    params.require(:time_content).permit(:start_time, :time_step_id, :content_id, :detail).merge(user_id: current_user.id)
   end
 end
