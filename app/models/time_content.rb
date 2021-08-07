@@ -4,7 +4,7 @@ class TimeContent < ApplicationRecord
   belongs_to :content
 
   with_options numericality: { other_than: 1, message: "can't be blank" } do
-    validates :time_id
+    validates :time_step_id
     validates :content_id
   end
 
