@@ -2,7 +2,8 @@ class TimeContentController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @time_contents = TimeContent.all
+    @time_contents = TimeContent.where(user_id: current_user)
+    # @time_contents = TimeContent.all #1つのカレンダーでユーザー全員の内容を閲覧
   end
 
   def new
