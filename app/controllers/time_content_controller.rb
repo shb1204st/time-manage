@@ -24,6 +24,12 @@ class TimeContentController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def updata
+  end
+
   private
 
   def time_content_params
