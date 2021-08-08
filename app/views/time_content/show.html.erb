@@ -5,7 +5,7 @@
         <%= "時間内容詳細"%>
       </p>
         <div class="prototype__manage">
-          <%= link_to "編集する", root_path, class: :prototype__btn %>
+          <%= link_to "編集する", edit_time_content_path(@time_content), class: :prototype__btn %>
           <%= link_to "削除する", root_path, class: :prototype__btn %>
         </div>
       <div class="prototype__body">
