@@ -1,6 +1,6 @@
 <h1>今日の仕事内容と時間</h1>
 
-<%= form_with(model: @time_content, url: time_content_index_path(@time_content.id), local: true) do |f| %>
+<%= form_with(model: @time_content, url: time_content_path(@time_content.id), local: true) do |f| %>
 <%= render 'shared/error_messages', model: f.object %>
 
   <div class="date">
