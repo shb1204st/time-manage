@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   end
   root to: "time_content#index"
   resources :users, only: [:show]
-  resources :time_content, only: [:index, :new, :create, :show, :edit, :update]
+  resources :time_content
   
 end
