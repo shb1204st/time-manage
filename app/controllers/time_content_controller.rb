@@ -33,9 +33,11 @@ class TimeContentController < ApplicationController
     else
       render :edit
     end
-    
   end
 
+  def destroy
+  end
+  
   private
 
   def time_content_params
