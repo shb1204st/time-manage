@@ -1,6 +1,6 @@
 class TimeContentController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_time_content, only: [:show, :edit, :update]
+  before_action :set_time_content, only: [:show, :edit, :update, :destroy]
   before_action :move_into_index, only: [:show, :edit]
 
   def index
@@ -36,8 +36,11 @@ class TimeContentController < ApplicationController
   end
 
   def destroy
+    if @time_content.destroy
+      redirect_to root_path
+    end
   end
-  
+
   private
 
   def time_content_params
