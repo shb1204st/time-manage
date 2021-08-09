@@ -1,7 +1,7 @@
 class TimeContentController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_time_content, only: [:show]
-  before_action :move_into_index, only: [:show]
+  before_action :set_time_content, only: [:show, :edit, :update]
+  before_action :move_into_index, only: [:show, :edit]
 
   def index
     @time_contents = TimeContent.where(user_id: current_user)
@@ -27,7 +27,13 @@ class TimeContentController < ApplicationController
   def edit
   end
 
-  def updata
+  def update
+    if @time_content.update(time_content_params)
+      redirect_to time_content_path
+    else
+      render :edit
+    end
+    
   end
 
   private
