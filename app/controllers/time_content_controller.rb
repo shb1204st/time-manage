@@ -36,9 +36,7 @@ class TimeContentController < ApplicationController
   end
 
   def destroy
-    if @time_content.destroy
-      redirect_to root_path
-    end
+    redirect_to root_path if @time_content.destroy
   end
 
   private
