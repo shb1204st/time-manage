@@ -4,8 +4,8 @@
       <div class="greeting">
         <%= current_user.name + "さん"%>
         <%= "、今日も一日頑張ろう！！" %><br><br>
-        <%= "1ヶ月の仕事内容集計"%><br>	
-        <%= pie_chart @data %><br>
+        <%= "1ヶ月の仕事内容集計"%><br>
+        <%= pie_chart @content_graph_data %><br>
          <%= link_to "時間内容登録", new_time_content_path, class: :nav__btn %>
       </div>
     <% end %>
