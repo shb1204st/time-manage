@@ -12,7 +12,7 @@
       </div>
     <% end %>
     <%# <div class="card__wrapper"> %>
-      <%= month_calendar events: @time_contents do |date, time_contents| %>
+      <%= month_calendar events: @time_contents.order("time_step_id ASC") do |date, time_contents| %>
         <%= date.day %>
         <% time_contents.each do |time_content| %>
           <div>
