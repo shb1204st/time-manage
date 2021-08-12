@@ -6,6 +6,12 @@ class TimeContentController < ApplicationController
   def index
     @time_contents = TimeContent.where(user_id: current_user)
     # @time_contents = TimeContent.all #1つのカレンダーでユーザー全員の内容を閲覧
+    @day = Time.zone.today
+    @content_month_graph_data = TimeContent.where(user_id: current_user).content_data
+    @background_colors = TimeContent.where(user_id: current_user).background_color_content_data
+    # @content_week_graph_data = TimeContent.where(user_id: current_user).content_data
+    @content_day_graph_data = TimeContent.where(user_id: current_user, start_time: @day).content_data
+    @background_colors = TimeContent.where(user_id: current_user, start_time: @day).background_color_content_data
   end
 
   def new
