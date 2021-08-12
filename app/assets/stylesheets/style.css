@@ -54,22 +54,47 @@ a {
 .title {
   font-size: 30px;
   width: 200px;
-  border: 2px solid #87cefa;
-  border-radius: 3px;
+  /* border: 2px solid #87cefa;
+  border-radius: 3px; */
   padding: 0.1em 0.1em;
 }
-.nav__btn{
+.title:hover{
+  opacity: 0.7;
+}
+
+.nav_in__btn{
   display: inline-block;
-  padding: 0.4em 1.6em;
-  font-size: 0.8em;
+  padding: 0.2em 1em;
+  font-size: 20px;
   color: #87CEFA;
   text-decoration: none;
   user-select: none;
   border: 1px #87CEFA solid;
   border-radius: 3px;
   transition: 0.4s ease;
+  margin-bottom: 15px;
 }
-.nav__btn:hover{
+
+.nav_up__btn{
+  display: inline-block;
+  padding: 0.2em 1em;
+  font-size: 20px;
+  color: #87CEFA;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #87CEFA solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+  margin-bottom: 15px;
+  margin-left: 20px;
+}
+
+.nav_in__btn:hover{
+  color: #fff;
+  background: #87CEFA;
+}
+
+.nav_up__btn:hover{
   color: #fff;
   background: #87CEFA;
 }
@@ -81,6 +106,9 @@ a {
   color: #87CEFA;
   text-decoration: none;
   user-select: none;
+  border: 1px #87CEFA solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
 }
 .nav__logout:hover{
   opacity: 0.5;
@@ -128,7 +156,7 @@ a {
 
 .error-alert {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   margin-bottom: 5vh;
 }
 
@@ -181,12 +209,12 @@ a {
 
 .graph {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .graph_explain {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .calendar_display {
@@ -203,6 +231,38 @@ a {
   justify-content: center;
   font-size: 50px;
   margin-bottom: 50px;
+}
+
+.nav_register__btn{
+  display: inline-block;
+  padding: 0.2em 1em;
+  font-size: 20px;
+  color: #87CEFA;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #87CEFA solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+  margin-bottom: 15px;
+  margin-left: 20px;
+}
+
+.nav_register__btn:hover{
+  color: #fff;
+  background: #87CEFA;
+}
+
+.calendar-heading {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.calendar-title {
+  margin: 0 10px;
+}
+
+.calender_select:hover {
+  color:rgb(177, 153, 153);
 }
 
 /* 時間内容登録 */
@@ -316,7 +376,7 @@ a {
   font-size: 25px;
 }
 
-.time_content_show__btn{
+.time_content_edit__btn{
   display: block;
   padding: 0.4em 1.6em;
   font-size: 15px;
@@ -327,6 +387,29 @@ a {
   border-radius: 3px;
   transition: 0.4s ease;
   margin: 0 10px 15px;
+}
+
+.time_content_edit__btn:hover{
+  color:#fff;
+  background:#87CEFA;
+}
+
+.time_content_delete__btn{
+  display: block;
+  padding: 0.4em 1.6em;
+  font-size: 15px;
+  color: #999;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #999 solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+  margin: 0 10px 15px;
+}
+
+.time_content_delete__btn:hover{
+  color: #fff;
+  background: red;
 }
 
 /* ユーザーページ */
