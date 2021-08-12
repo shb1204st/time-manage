@@ -6,7 +6,7 @@ class Content < ActiveHash::Base
     { id: 4, name: '会議', backcolor: "#ff0" }, #yellow
     { id: 5, name: '点検', backcolor: "#0f0" }, #lime
     { id: 6, name: '電話', backcolor: "#f0f" }, #fuchsia
-    { id: 7, name: 'その他', backcolor: "#008000" } #purple
+    { id: 7, name: 'その他', backcolor: "#008000" } #green
   ]
 
   include ActiveHash::Associations
