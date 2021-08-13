@@ -11,16 +11,11 @@
         <h1 class="month_graph_explain">1ヶ月の仕事内容集計</h1>
       </div>
       <div class="graph">
-        <%= pie_chart @content_day_graph_data, colors: @background_colors, width: "300px", class: "day_graph" %>
-        <%= pie_chart @content_week_graph_data, colors: @background_colors, width: "300px", class: "week_graph" %>
-        <%= pie_chart @content_month_graph_data, colors: @background_colors, width: "300px", class: "month_graph" %>
+        <%= pie_chart @content_day_graph_data, colors: @background_colors, width: "250px", class: "day_graph" %>
+        <%= pie_chart @content_week_graph_data, colors: @background_colors, width: "250px", class: "week_graph" %>
+        <%= pie_chart @content_month_graph_data, colors: @background_colors, width: "250px", class: "month_graph" %>
       </div><br><br>
       <%= link_to "時間内容登録", new_time_content_path, class: :nav_register__btn %>
-    <% else %>
-       <div class="no_signed_in">
-        <h1 class="day_graph_explain">参考データ</h1>
-      </div><br>
-    <% end %>
     <%# <div class="card__wrapper"> %>
       <%= month_calendar events: @time_contents do |date, time_contents| %>
         <%= date.day %>
@@ -30,6 +25,12 @@
           </div>
         <% end %>
       <% end %>
+    <% else %>
+       <div class="no_signed_in">
+        <h1 class="day_graph_explain">参考表示</h1>
+        <img src="https://i.gyazo.com/26f528c0c3f96ea4ac5989c214b9dcd4.png" alt="Image from Gyazo" width="1020"/></a>
+      </div><br>
+    <% end %>
     <%# </div> %>
   </div>
 </main>
