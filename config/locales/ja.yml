@@ -3,7 +3,7 @@ ja:
     attributes:
       user:
         name: 名前
-        kana_name: カタカナで名前
+        kana_name: カタカナの名前
         department: 部署
       time_content:
         time_step_id: 実施時間
