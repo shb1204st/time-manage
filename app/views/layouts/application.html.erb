@@ -15,7 +15,9 @@
       <div class="inner">
         <div class="nav">
           <div class="nav__left">
-            <%= link_to " 【TimeManage】 ", root_path, class: :title %>
+            <%= link_to(root_path, class: :title) do %>
+              <%= image_tag 'TIME MANAGE.png' , size: '200x100'  %>
+            <% end %>
           </div>
           <% if user_signed_in? %>
             <div class="nav__right">
