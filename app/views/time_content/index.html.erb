@@ -4,22 +4,33 @@
       <div class="greeting">
         <%= current_user.name + "さん"%>
         <%= "、今日も一日頑張ろう！！" %><br><br>
-        <%= "今日の仕事内容集計"%><br>
-        <%= pie_chart @content_day_graph_data, colors: @background_colors %><br>
-         <%= "1ヶ月の仕事内容集計"%><br>
-        <%= pie_chart @content_month_graph_data, colors: @background_colors %><br>
-         <%= link_to "時間内容登録", new_time_content_path, class: :nav__btn %>
       </div>
-    <% end %>
+      <div class="graph_explain">
+        <h1 class="day_graph_explain">今日の仕事内容集計</h1>
+        <h1 class="week_graph_explain">1週間の仕事内容集計</h1>
+        <h1 class="month_graph_explain">1ヶ月の仕事内容集計</h1>
+      </div>
+      <div class="graph">
+        <%= pie_chart @content_day_graph_data, colors: @background_colors, width: "250px", class: "day_graph" %>
+        <%= pie_chart @content_week_graph_data, colors: @background_colors, width: "250px", class: "week_graph" %>
+        <%= pie_chart @content_month_graph_data, colors: @background_colors, width: "250px", class: "month_graph" %>
+      </div><br><br>
+      <%= link_to "時間内容登録", new_time_content_path, class: :nav_register__btn %>
     <%# <div class="card__wrapper"> %>
-      <%= month_calendar events: @time_contents.order("time_step_id ASC") do |date, time_contents| %>
+      <%= month_calendar events: @time_contents do |date, time_contents| %>
         <%= date.day %>
         <% time_contents.each do |time_content| %>
           <div>
-            <%= link_to time_content.time_step.name, time_content_path(time_content.id) %>
+            <%= link_to time_content.time_step.name, time_content_path(time_content.id), class:"calendar_display" %>
           </div>
         <% end %>
       <% end %>
+    <% else %>
+       <div class="no_signed_in">
+        <h1 class="day_graph_explain">参考表示</h1>
+        <img src="https://i.gyazo.com/26f528c0c3f96ea4ac5989c214b9dcd4.png" alt="Image from Gyazo" width="1020"/></a>
+      </div><br>
+    <% end %>
     <%# </div> %>
   </div>
 </main>

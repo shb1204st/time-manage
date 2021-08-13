@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        kana_name: カタカナで名前
+        department: 部署
+      time_content:
+        time_step_id: 実施時間
+        content_id: 実施内容
+        detail: 仕事詳細内容
+        start_time: 今日の日付
