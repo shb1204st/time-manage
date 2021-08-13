@@ -38,7 +38,7 @@ class TimeContent < ApplicationRecord
     end
   end
   
-  with_options numericality: { other_than: 1, message: "can't be blank" } do
+  with_options numericality: { other_than: 1, message: "を選択してください"} do
     validates :time_step_id
     validates :content_id
   end
