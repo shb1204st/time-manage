@@ -39,7 +39,7 @@ class TimeContent < ApplicationRecord
   end
 
   with_options numericality: { other_than: 1, message: 'を選択してください' } do
-    validates :time_step_id
+    validates :time_step_id, uniqueness: { scope: [:time_step_id, :start_time] }
     validates :content_id
   end
 
