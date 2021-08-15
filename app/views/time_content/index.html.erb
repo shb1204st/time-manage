@@ -12,8 +12,8 @@
       </div>
       <div class="graph">
         <%= pie_chart @content_day_graph_data, colors: @background_colors, width: "250px", class: "day_graph" %>
-        <%= pie_chart @content_week_graph_data, colors: @background_colors, width: "250px", class: "week_graph" %>
-        <%= pie_chart @content_month_graph_data, colors: @background_colors, width: "250px", class: "month_graph" %>
+        <%= pie_chart @content_week_graph_data, colors: @background_week_colors, width: "250px", class: "week_graph" %>
+        <%= pie_chart @content_month_graph_data, colors: @background_month_colors, width: "250px", class: "month_graph" %>
       </div><br><br>
       <%= link_to "時間内容登録", new_time_content_path, class: :nav_register__btn %>
     
