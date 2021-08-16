@@ -169,7 +169,8 @@ a {
 /* メイン */
 
 .greeting{
-  margin-bottom: 20px;
+  text-align: center;
+  margin-top: 40px;
 }
 
 .page-heading {
@@ -212,10 +213,55 @@ a {
   justify-content: space-between;
 }
 
-.graph_explain {
+.graph_title {
   display: flex;
   justify-content: space-between;
 }
+
+.day_graph_title{
+  margin-left: 20px;
+}
+
+.week_graph_title{
+  margin-right: 30px;
+}
+
+.last_month_graph_title{
+  margin-right: 25px;
+}
+
+.month_graph_title{
+  margin-right: 25px;
+}
+
+.total_time_title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.day_total_time_title {
+  margin-left: 25px;
+}
+
+.week_total_time_title {
+  margin-left: 60px;
+  margin-right: 40px;
+}
+
+.last_month_total_time_title {
+  margin-left: 30px;
+  margin-right: 60px;
+}
+
+.month_total_time_title {
+  margin-right: 15px;
+}
+
+
+.total_time {
+  display: block;
+}
+
 
 .calendar_display {
   text-decoration: underline;
@@ -223,7 +269,7 @@ a {
 
 .calendar_display:hover{
   color: #fff;
-  background: #87CEFA;
+  background: #87faeb;
 }
 
 .time_content_title {
@@ -247,7 +293,21 @@ a {
   margin-left: 20px;
 }
 
-.nav_register__btn:hover{
+.nav_date_register__btn{
+  display: inline-block;
+  padding: 0.2em 1em;
+  font-size: 15px;
+  color: black;
+  /* text-decoration: none;
+  user-select: none; */
+  /* border: 1px #87CEFA solid; */
+  border-radius: 3px;
+  /* transition: 0.4s ease;*/
+  margin-bottom: 5px;
+  margin-left: 20px;
+}
+
+.nav_date_register__btn {
   color: #fff;
   background: #87CEFA;
 }

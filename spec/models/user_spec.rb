@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
       it 'emailが空では登録できないこと' do
         @user.email = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Eメールを入力してください")
+        expect(@user.errors.full_messages).to include('Eメールを入力してください')
       end
 
       it 'emailが重複していると登録できないこと' do
@@ -36,7 +36,7 @@ RSpec.describe User, type: :model do
       it 'passwordが空では登録できないこと' do
         @user.password = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワードを入力してください")
+        expect(@user.errors.full_messages).to include('パスワードを入力してください')
       end
 
       it 'passwordが5文字以下であれば登録できないこと' do
@@ -57,13 +57,13 @@ RSpec.describe User, type: :model do
         @user.password = '0000000a'
         @user.password_confirmation = '000000a'
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
+        expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
       end
 
       it 'nameが空では登録できないこと' do
         @user.name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("名前を入力してください")
+        expect(@user.errors.full_messages).to include('名前を入力してください')
       end
 
       it 'nameが全角（漢字・ひらがな・カタカナ）でなければ登録できないこと' do
@@ -75,7 +75,7 @@ RSpec.describe User, type: :model do
       it 'kana_nameが空では登録できないこと' do
         @user.kana_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("カタカナで名前を入力してください")
+        expect(@user.errors.full_messages).to include('カタカナで名前を入力してください')
       end
 
       it 'kana_nameが全角（カタカナ）でなければ登録できないこと' do
@@ -87,7 +87,7 @@ RSpec.describe User, type: :model do
       it 'departmentが空では登録できないこと' do
         @user.department = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("部署を入力してください")
+        expect(@user.errors.full_messages).to include('部署を入力してください')
       end
     end
   end
