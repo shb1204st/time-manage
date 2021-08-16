@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   end
   root to: "time_content#index"
   resources :users, only: [:show]
-  resources :time_content
+  resources :time_content do
+    collection do
+     get 'keyword_search'
+    end
+  end
   
 end
