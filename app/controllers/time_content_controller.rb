@@ -2,7 +2,8 @@ class TimeContentController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_time_content, only: [:show, :edit, :update, :destroy]
   before_action :move_into_index, only: [:show, :edit]
-
+  before_action :search_time_content, only: [:index, :show, :keyword_search]
+  
   def index
     @time_contents = TimeContent.where(user_id: current_user)
     # @time_contents = TimeContent.all #1つのカレンダーでユーザー全員の内容を閲覧
@@ -63,6 +64,10 @@ class TimeContentController < ApplicationController
     redirect_to root_path if @time_content.destroy
   end
 
+  def keyword_search
+    @results = @p.result.includes(:user)
+  end
+
   private
 
   def time_content_params
@@ -76,4 +81,10 @@ class TimeContentController < ApplicationController
   def move_into_index
     redirect_to action: :index if current_user.id != @time_content.user.id
   end
+
+  def search_time_content
+    @p = TimeContent.ransack(params[:q])
+  end
+
+
 end
