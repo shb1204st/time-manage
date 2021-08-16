@@ -6,22 +6,25 @@
         <%= "、今日も一日頑張ろう！！" %><br><br>
       </div>
       <div class="graph_explain">
-        <h1 class="day_graph_explain">今日の仕事内容集計</h1>
-        <h1 class="week_graph_explain">1週間の仕事内容集計</h1>
-        <h1 class="month_graph_explain">1ヶ月の仕事内容集計</h1>
+        <h3 class="day_graph_explain">今日の仕事内容集計</h3>
+        <h3 class="week_graph_explain">1週間の仕事内容集計</h3>
+        <h3 class="last_month_graph_explain">前月合計時間</h3>
+        <h3 class="month_graph_explain">1ヶ月の仕事内容集計</h3>
       </div>
       <div class="graph">
-        <%= pie_chart @content_day_graph_data, colors: @background_colors, width: "250px", class: "day_graph" %>
-        <%= pie_chart @content_week_graph_data, colors: @background_week_colors, width: "250px", class: "week_graph" %>
-        <%= pie_chart @content_month_graph_data, colors: @background_month_colors, width: "250px", class: "month_graph" %>
-      </div><br><br>
+        <%= pie_chart @content_day_graph_data, colors: @background_colors, width: "200px", class: "day_graph" %>
+        <%= pie_chart @content_week_graph_data, colors: @background_week_colors, width: "200px", class: "week_graph" %>
+        <%= pie_chart @content_last_month_graph_data, colors: @background_last_month_colors, width: "200px", class: "last_month_graph" %>
+        <%= pie_chart @content_month_graph_data, colors: @background_month_colors, width: "200px", class: "month_graph" %>
+      </div><br>
+
       <%= link_to "時間内容登録", new_time_content_path, class: :nav_register__btn %>
     
       <%= month_calendar events: @time_contents do |date, time_contents| %>
         <%= link_to date, new_time_content_path, class: :nav_date_register__btn %>
         <% time_contents.each do |time_content| %>
           <div>
-            <%= link_to time_content.time_step.name, time_content_path(time_content.id), class:"calendar_display" %>
+            <%= link_to time_content.content.name, time_content_path(time_content.id), class:"calendar_display" %>
           </div>
         <% end %>
       <% end %>

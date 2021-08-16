@@ -10,9 +10,9 @@ class TimeContent < ApplicationRecord
       @time_contents.each_with_index do |time_content, index|
         content_graph_data = { time_content.content.name => 0 } if index.zero?
         if content_graph_data.key?(time_content.content.name)
-          content_graph_data[time_content.content.name] += 1
+          content_graph_data[time_content.content.name] += 1 * 30
         else
-          content_graph_data[time_content.content.name] = 1
+          content_graph_data[time_content.content.name] = 1 * 30
         end
       end
       content_graph_data

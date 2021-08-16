@@ -6,16 +6,20 @@ class TimeContentController < ApplicationController
   def index
     @time_contents = TimeContent.where(user_id: current_user)
     # @time_contents = TimeContent.all #1つのカレンダーでユーザー全員の内容を閲覧
-    @day = Time.zone.today
-    @week = @day.ago(6.days)
-    @month = @day.prev_month
+    @day = Date.today
+    @week = Date.today.all_week
+    @month = Date.today.all_month
+    @last_month = Time.current.last_month.all_month
 
-    @content_month_graph_data = TimeContent.where(user_id: current_user, start_time: @month..@day).content_data
-    @background_month_colors = TimeContent.where(user_id: current_user, start_time: @month..@day).background_color_content_data
-    @content_week_graph_data = TimeContent.where(user_id: current_user, start_time: @week..@day).content_data
-    @background_week_colors = TimeContent.where(user_id: current_user, start_time: @week..@day).background_color_content_data
+    @content_month_graph_data = TimeContent.where(user_id: current_user, start_time: @month).content_data
+    @background_month_colors = TimeContent.where(user_id: current_user, start_time: @month).background_color_content_data
+    @content_last_month_graph_data = TimeContent.where(user_id: current_user, start_time: @last_month).content_data
+    @background_last_month_colors = TimeContent.where(user_id: current_user, start_time: @last_month).background_color_content_data
+    @content_week_graph_data = TimeContent.where(user_id: current_user, start_time: @week).content_data
+    @background_week_colors = TimeContent.where(user_id: current_user, start_time: @week).background_color_content_data
     @content_day_graph_data = TimeContent.where(user_id: current_user, start_time: @day).content_data
     @background_colors = TimeContent.where(user_id: current_user, start_time: @day).background_color_content_data
+    
   end
 
   def new
