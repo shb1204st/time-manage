@@ -11,19 +11,25 @@ class TimeContentController < ApplicationController
     @month = Date.today.all_month
     @last_month = Date.today.last_month.all_month
 
-    @content_month_graph_data = TimeContent.where(user_id: current_user, start_time: @month).order("content_id ASC").content_data
-    @background_month_colors = TimeContent.where(user_id: current_user, start_time: @month).order("content_id ASC").background_color_content_data
-    @content_last_month_graph_data = TimeContent.where(user_id: current_user, start_time: @last_month).order("content_id ASC").content_data
-    @background_last_month_colors = TimeContent.where(user_id: current_user, start_time: @last_month).order("content_id ASC").background_color_content_data
-    @content_week_graph_data = TimeContent.where(user_id: current_user, start_time: @week).order("content_id ASC").content_data
-    @background_week_colors = TimeContent.where(user_id: current_user, start_time: @week).order("content_id ASC").background_color_content_data
-    @content_day_graph_data = TimeContent.where(user_id: current_user, start_time: @day).order("content_id ASC").content_data
-    @background_colors = TimeContent.where(user_id: current_user, start_time: @day).order("content_id ASC").background_color_content_data
+    @content_month_graph_data = TimeContent.where(user_id: current_user, start_time: @month).order('content_id ASC').content_data
+    @background_month_colors = TimeContent.where(user_id: current_user,
+                                                 start_time: @month).order('content_id ASC').background_color_content_data
+    @content_last_month_graph_data = TimeContent.where(user_id: current_user,
+                                                       start_time: @last_month).order('content_id ASC').content_data
+    @background_last_month_colors = TimeContent.where(user_id: current_user,
+                                                      start_time: @last_month).order('content_id ASC').background_color_content_data
+    @content_week_graph_data = TimeContent.where(user_id: current_user, start_time: @week).order('content_id ASC').content_data
+    @background_week_colors = TimeContent.where(user_id: current_user,
+                                                start_time: @week).order('content_id ASC').background_color_content_data
+    @content_day_graph_data = TimeContent.where(user_id: current_user, start_time: @day).order('content_id ASC').content_data
+    @background_colors = TimeContent.where(user_id: current_user,
+                                           start_time: @day).order('content_id ASC').background_color_content_data
 
-    @day_total_time = TimeContent.where(user_id: current_user, start_time: @day).order("content_id ASC").content_data
-    @week_total_time = TimeContent.where(user_id: current_user, start_time: @week).order("content_id ASC").content_data
-    @last_month_total_time = TimeContent.where(user_id: current_user, start_time: @last_month).order("content_id ASC").content_data
-    @month_total_time = TimeContent.where(user_id: current_user, start_time: @month).order("content_id ASC").content_data
+    @day_total_time = TimeContent.where(user_id: current_user, start_time: @day).order('content_id ASC').content_data
+    @week_total_time = TimeContent.where(user_id: current_user, start_time: @week).order('content_id ASC').content_data
+    @last_month_total_time = TimeContent.where(user_id: current_user,
+                                               start_time: @last_month).order('content_id ASC').content_data
+    @month_total_time = TimeContent.where(user_id: current_user, start_time: @month).order('content_id ASC').content_data
   end
 
   def new
