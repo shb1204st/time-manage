@@ -19,7 +19,11 @@ class TimeContentController < ApplicationController
     @background_week_colors = TimeContent.where(user_id: current_user, start_time: @week).background_color_content_data
     @content_day_graph_data = TimeContent.where(user_id: current_user, start_time: @day).content_data
     @background_colors = TimeContent.where(user_id: current_user, start_time: @day).background_color_content_data
-    
+
+    @day_total_time = TimeContent.where(user_id: current_user, start_time: @day).content_data
+    @week_total_time = TimeContent.where(user_id: current_user, start_time: @week).content_data
+    @last_month_total_time = TimeContent.where(user_id: current_user, start_time: @last_month).content_data
+    @month_total_time = TimeContent.where(user_id: current_user, start_time: @month).content_data
   end
 
   def new
