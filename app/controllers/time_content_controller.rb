@@ -3,7 +3,7 @@ class TimeContentController < ApplicationController
   before_action :set_time_content, only: [:show, :edit, :update, :destroy]
   before_action :move_into_index, only: [:show, :edit]
   before_action :search_time_content, only: [:index, :show, :keyword_search, :start_time_search]
-  
+
   def index
     @time_contents = TimeContent.where(user_id: current_user)
     # @time_contents = TimeContent.all #1つのカレンダーでユーザー全員の内容を閲覧
@@ -32,7 +32,7 @@ class TimeContentController < ApplicationController
                                                start_time: @last_month).order('content_id ASC').content_data
     @month_total_time = TimeContent.where(user_id: current_user, start_time: @month).order('content_id ASC').content_data
 
-    @start_time = TimeContent.select("start_time").order("start_time ASC").distinct
+    @start_time = TimeContent.select('start_time').order('start_time ASC').distinct
   end
 
   def new
@@ -72,7 +72,7 @@ class TimeContentController < ApplicationController
 
   def start_time_search
     @results = @p.result.includes(:user)
-    set_start_time_column 
+    set_start_time_column
   end
 
   private
@@ -90,7 +90,6 @@ class TimeContentController < ApplicationController
   end
 
   def search_time_content
-    @p = TimeContent.order("start_time ASC", "time_step_id ASC").ransack(params[:q])
+    @p = TimeContent.order('start_time ASC', 'time_step_id ASC').ransack(params[:q])
   end
-
 end
