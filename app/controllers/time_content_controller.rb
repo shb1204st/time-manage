@@ -2,6 +2,7 @@ class TimeContentController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_time_content, only: [:show, :edit, :update, :destroy]
   before_action :move_into_index, only: [:show, :edit]
+  before_action :search_time_content, only: [:index, :show, :keyword_search, :detail_search]
 
   def index
     @time_contents = TimeContent.where(user_id: current_user)
@@ -63,6 +64,15 @@ class TimeContentController < ApplicationController
     redirect_to root_path if @time_content.destroy
   end
 
+  def keyword_search
+    @results = @p.result.includes(:user)
+  end
+
+  def detail_search
+    @results = @p.result.includes(:user)
+    set_detail_search_column
+  end
+
   private
 
   def time_content_params
@@ -75,5 +85,13 @@ class TimeContentController < ApplicationController
 
   def move_into_index
     redirect_to action: :index if current_user.id != @time_content.user.id
+  end
+
+  def search_time_content
+    @p = TimeContent.order('start_time ASC', 'time_step_id ASC').ransack(params[:q])
+  end
+
+  def set_detail_search_column
+    @start_time = TimeContent.select('start_time').order('start_time ASC').distinct
   end
 end
