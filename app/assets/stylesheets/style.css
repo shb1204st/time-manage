@@ -177,6 +177,36 @@ a {
   font-size: 30px;
   margin-bottom: 28px;
 }
+
+.search-form {
+  width: 25vw;
+  height: 5vh;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.search-form>.input-box {
+  width: 100%;
+  height: 5vh;
+  padding-left: 10px;
+}
+
+.search-button {
+  width: 5vh;
+  border: 0;
+  cursor: pointer;
+  background-color: #3ccace;
+  padding: 8px;
+}
+
+.search-icon {
+  width: 100%;
+}
+
+.form-search {
+  margin-left: 20px;
+}
+
 .card__wrapper {
   display: flex;
   flex-wrap: wrap;
