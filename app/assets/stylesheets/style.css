@@ -170,7 +170,7 @@ a {
 
 .greeting{
   text-align: center;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 .page-heading {
@@ -319,6 +319,31 @@ a {
   display: block;
 }
 
+.display_calendar {
+	margin: 1em 0;
+	padding: 0;
+} 
+.display_calendar label {
+	padding: 15px;
+	font-weight: bold;
+	color: #FFF;
+	background-color: #eb2aeb;
+	cursor :pointer;
+}
+.display_calendar input {
+	display: none;
+}
+
+.display_calendar .hidden_box {
+	padding: 10px 0;
+	height: auto;
+	visibility: visible;
+}
+.display_calendar input:checked ~ .hidden_box {
+	visibility: hidden;
+}
+
+
 
 .calendar_display {
   text-decoration: underline;
@@ -383,6 +408,10 @@ a {
 }
 
 /* 時間内容登録 */
+
+.a {
+  display: flex;
+}
 
 .time_content_detail_title_1 {
   display: flex;
@@ -646,4 +675,5 @@ a {
     width: 100%;
   }
 }
+
 
