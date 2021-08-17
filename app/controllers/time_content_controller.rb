@@ -31,7 +31,6 @@ class TimeContentController < ApplicationController
     @last_month_total_time = TimeContent.where(user_id: current_user,
                                                start_time: @last_month).order('content_id ASC').content_data
     @month_total_time = TimeContent.where(user_id: current_user, start_time: @month).order('content_id ASC').content_data
-
   end
 
   def new
@@ -95,5 +94,4 @@ class TimeContentController < ApplicationController
   def set_detail_search_column
     @start_time = TimeContent.select('start_time').order('start_time ASC').distinct
   end
-
 end
