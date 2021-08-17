@@ -2,7 +2,7 @@ class TimeContentController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_time_content, only: [:show, :edit, :update, :destroy]
   before_action :move_into_index, only: [:show, :edit]
-  before_action :search_time_content, only: [:index, :show, :keyword_search, :start_time_search]
+  before_action :search_time_content, only: [:index, :show, :keyword_search, :detail_search]
 
   def index
     @time_contents = TimeContent.where(user_id: current_user)
@@ -32,7 +32,6 @@ class TimeContentController < ApplicationController
                                                start_time: @last_month).order('content_id ASC').content_data
     @month_total_time = TimeContent.where(user_id: current_user, start_time: @month).order('content_id ASC').content_data
 
-    @start_time = TimeContent.select('start_time').order('start_time ASC').distinct
   end
 
   def new
@@ -70,9 +69,9 @@ class TimeContentController < ApplicationController
     @results = @p.result.includes(:user)
   end
 
-  def start_time_search
+  def detail_search
     @results = @p.result.includes(:user)
-    set_start_time_column
+    set_detail_search_column
   end
 
   private
@@ -92,4 +91,9 @@ class TimeContentController < ApplicationController
   def search_time_content
     @p = TimeContent.order('start_time ASC', 'time_step_id ASC').ransack(params[:q])
   end
+
+  def set_detail_search_column
+    @start_time = TimeContent.select('start_time').order('start_time ASC').distinct
+  end
+
 end
