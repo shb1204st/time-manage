@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :time_content do
     collection do
-     get 'keyword_search', 'start_time_search'
+     get 'keyword_search', 'detail_search'
     end
   end
   
