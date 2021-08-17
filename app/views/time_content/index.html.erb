@@ -5,6 +5,17 @@
         <%= current_user.name + "さん"%>
         <%= "、今日も一日頑張ろう！！" %><br><br>
       </h1>
+
+      <h2>
+        仕事詳細キーワード検索
+      </h2>
+        <%= search_form_for @p, url: keyword_search_time_content_index_path, class: "search-form", local: true do |f| %>
+          <%= f.text_field :detail_cont, class: 'input-box', placeholder:'キーワードから探す' %>
+          <button class="search-button">
+           <%= image_submit_tag "search.png", class:"search-icon" %>
+          </button>
+        <% end %>
+
       <div class="graph_title">
         <h3 class="day_graph_title">今日の仕事内容集計</h3>
         <h3 class="week_graph_title">今週の仕事内容集計</h3>
