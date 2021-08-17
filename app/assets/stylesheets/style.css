@@ -178,6 +178,16 @@ a {
   margin-bottom: 28px;
 }
 
+.search_title {
+  display: flex;
+  justify-content: space-around;
+}
+
+.searh_content {
+  display: flex;
+  justify-content: space-around;
+}
+
 .search-form {
   width: 25vw;
   height: 5vh;
