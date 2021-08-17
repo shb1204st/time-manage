@@ -7,14 +7,14 @@
       </h1>
 
       <div class="search_title">
-        <h2 class="detail_search_title">
-          仕事詳細キーワード検索
+        <h2 class="keyword_search_title">
+          キーワード検索(仕事詳細内容)
         </h2>
-        <h2 class="date_search_title">
-          日付検索
+        <h2 class="detail_search_title">
+          詳細検索ボタン
         </h2>
       </div>
-      <div class="searh_content">
+      <div class="search_content">
         <%= search_form_for @p, url: keyword_search_time_content_index_path, class: "search-form", local: true do |f| %>
           <%= f.text_field :detail_cont, class: 'input-box', placeholder:'キーワードから探す' %>
           <button class="search-button">
@@ -22,11 +22,12 @@
           </button>
         <% end %>
 
-        <%= search_form_for @p, url: keyword_search_time_content_index_path do |f| %>
-          <%= f.label :start_time_eq, '日付' %>
-          <%= f.collection_select :start_time_eq, @start_time, :start_time, :start_time, include_blank: '指定なし' %>
-          <%= f.submit '検索' %>
-        <% end %>
+        <%= link_to '詳細検索', detail_search_time_content_index_path, class: "detail-search" %></li>
+        <%# <%= search_form_for @p, url: keyword_search_time_content_index_path do |f| %>
+          <%# <%= f.label :start_time_eq, '日付' %> 
+          <%# <%= f.collection_select :start_time_eq, @start_time, :start_time, :start_time, include_blank: '指定なし' %> 
+          <%# <%= f.submit '検索' %> 
+        <%# <% end %> 
       </div>
 
       <div class="graph_title">
