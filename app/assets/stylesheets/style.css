@@ -443,6 +443,16 @@ a {
 
 /* 時間内容登録 */
 
+.notifications {
+  font-size: 20px;
+  color: white;
+  text-align: center;  
+}
+
+.notice {
+  background-color: rgb(120, 93, 238);
+}
+
 .a {
   display: flex;
 }
@@ -523,6 +533,16 @@ a {
 
 /* 詳細ページ */
 
+.successful {
+  font-size: 20px;
+  color: white;
+  text-align: center;  
+}
+
+.success {
+  background-color: rgb(120, 93, 238);
+}
+
 .time_content__wrapper{
   min-height: calc(100vh - 161px);
 }
@@ -598,9 +618,9 @@ a {
 }
 
 .back_btn {
-  background: #87CEFA;
-  color: white;
-  border: 2px solid #3ccace;
+  background: #ccdfeb;
+  color: rgb(75, 71, 71);
+  border: 2px solid #d3edee;
   border-radius: 3px;
 }
 
@@ -622,6 +642,15 @@ a {
   border-radius: 3px;
   margin-left: 50px;
 }
+
+.detail_submit {
+  font-size: 20px;
+  background: #87CEFA;
+  color: white;
+  border: 2px solid #3ccace;
+  border-radius: 3px;
+}
+
 
 /* ユーザーページ */
 .user__wrapper{
