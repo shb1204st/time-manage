@@ -40,6 +40,7 @@ class TimeContentController < ApplicationController
   def create
     @time_content = TimeContent.new(time_content_params)
     if @time_content.save
+      flash[:notice] = '内容を登録しました'
       redirect_to root_path
     else
       render :new
@@ -54,6 +55,7 @@ class TimeContentController < ApplicationController
 
   def update
     if @time_content.update(time_content_params)
+      flash[:success] = '内容を編集しました'
       redirect_to time_content_path
     else
       render :edit
