@@ -330,6 +330,7 @@ a {
 	background-color: #eb2aeb;
 	cursor :pointer;
 }
+/* 
 .display_calendar input {
 	display: none;
 }
@@ -341,9 +342,42 @@ a {
 }
 .display_calendar input:checked ~ .hidden_box {
 	visibility: hidden;
+} */
+
+.hidden_box {
+  margin: 2em 0;/*前後の余白*/
+  padding: 0;
 }
 
+.hidden_box label {
+  padding: 15px;
+  font-weight: bold;
+  border: solid 2px black;
+  cursor :pointer;
+}
 
+.hidden_box label:hover {
+  background: #efefef;
+}
+
+.hidden_box input {
+  display: none;
+}
+
+.hidden_box .hidden_show {
+  padding: 10px 0;
+  height: auto;
+  opacity: 1;
+}
+
+.hidden_box input:checked ~ .hidden_show {
+  display: none;
+  /* height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.8s; */
+}
 
 .calendar_display {
   text-decoration: underline;
