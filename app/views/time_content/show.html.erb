@@ -1,12 +1,15 @@
 <main class="main">
   <div class="inner">
+    <div class="successful">
+      <p class="success"><%= flash[:success] %></p>
+    </div>
     <div class="time_content__wrapper">
       <p class="time_content__hedding">
         <%= "時間内容詳細"%>
       </p>
         <div class="time_content__manage">
           <%= link_to "編集する", edit_time_content_path(@time_content.id), class: :time_content_edit__btn %>
-          <%= link_to "削除する", time_content_path(@time_content.id), method: :delete, class: :time_content_delete__btn %>
+          <%= link_to "削除する", time_content_path(@time_content.id), method: :delete, class: :time_content_delete__btn, data: { confirm: '削除しますか？' } %>
         </div>
       <div class="prototype__body">
         <div class="time_content__detail">

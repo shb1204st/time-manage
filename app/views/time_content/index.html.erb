@@ -1,11 +1,16 @@
 <main class="main">
   <div class="inner">
     <% if user_signed_in? %>
+      <% if flash[:notice] %>
+        <div class="notifications">
+          <p class="notice"><%= flash[:notice] %></p>
+        </div>
+      <% end %>
+      
       <h1 class="greeting">
         <%= current_user.name + "さん"%>
         <%= "、今日も一日頑張ろう！！" %><br><br>
       </h1>
-
       <div class="search_title">
         <h2 class="keyword_search_title">
           キーワード検索(仕事詳細内容)
