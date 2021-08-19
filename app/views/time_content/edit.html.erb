@@ -1,4 +1,4 @@
-<h1 class="time_content_title">今日の仕事内容と時間</h1>
+<h1 class="time_content_title">【編集】今日の仕事内容と時間</h1>
 
 <%= form_with(model: @time_content, url: time_content_path(@time_content.id), local: true) do |f| %>
 <%= render 'shared/error_messages', model: f.object %>
@@ -39,9 +39,11 @@
     
   <div class="submit_btn">
     <div class="submit">
-    <%= f.submit "登録", {:class => "submit_style"} %>
+      <%= f.submit "登録", {:class => "submit_style"} %>
+    </div>
   </div>
-  </div>
-
+  <div class="edit_back_btn_form" >
+    <%= link_to '詳細検索ページへ戻る', detail_search_time_content_index_path, class: "edit_back_btn_detail" %><br><br>
+  </div><br>
 
 <% end %>

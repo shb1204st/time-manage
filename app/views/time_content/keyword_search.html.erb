@@ -4,7 +4,6 @@
   </h1>
   <% if @results.length !=0 %>
     <% @results.each do |result| %>
-      <br>
       <li class="searched-list">
         日付：<%= result.start_time %>
         <br>
@@ -13,7 +12,15 @@
         実施内容：<%= result.content.name %>
         <br>
         詳細内容：<%= result.detail %>
-      </li>
+      </li><br>
+      <div>
+        <ul class="more_list">
+          <li>
+            <%= link_to "編集する", edit_time_content_path(result.id), class: "search_edit" %>
+            <%= link_to '削除する', time_content_path(result.id), method: :delete, class: "search_delete", data: { confirm: '削除しますか？' } %>
+          </li>
+        </ul><br>
+      </div>
     <% end %>
   <% else %>
     該当する項目はありません
