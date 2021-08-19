@@ -4,6 +4,7 @@
   </h1>
   <% if @results.length !=0 %>
     <% @results.each do |result| %>
+    <%= link_to time_content_path(result.id), class: "detail_result_display" do %>
       <br>
       <li class="searched-list">
         日付：<%= result.start_time %>
@@ -14,6 +15,7 @@
         <br>
         詳細内容：<%= result.detail %>
       </li>
+    <% end %>
     <% end %>
   <% else %>
     該当する項目はありません
