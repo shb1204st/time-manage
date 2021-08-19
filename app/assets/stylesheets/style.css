@@ -612,6 +612,20 @@ a {
   background: red;
 }
 
+.edit_back_btn_form {
+  display: flex;
+  justify-content: center;
+}
+
+.edit_back_btn_detail {
+  font-size: 15px;
+  background: #df2ec1;
+  color: white;
+  border: 2px solid #de4bf1;
+  border-radius: 3px;
+  padding-top: 10px;
+}
+
 /* 詳細検索ページ */
 .detail-search_form {
   text-align: center;
@@ -649,6 +663,16 @@ a {
   color: white;
   border: 2px solid #3ccace;
   border-radius: 3px;
+}
+
+.detail_result_display {
+  color: #3ccace;
+  border: none;
+  width: 50px;
+}
+
+.detail_result_display:hover {
+  color: #ce3c96;
 }
 
 
