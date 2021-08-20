@@ -8,9 +8,17 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700,900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
   </head>
 
-  <body>
+  <body onload=setTimeout('a()',1000)>
+      <SCRIPT language="JavaScript">
+     <!--
+       function a() {
+           swal("仕事内容に登録のし忘れはありませんか？");
+       }
+     // -->
+     </SCRIPT>
     <header class="header">
       <div class="inner">
         <div class="nav">
