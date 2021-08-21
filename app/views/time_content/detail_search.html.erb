@@ -2,10 +2,14 @@
   <h1 class="detail-search-title">詳細検索</h1><br><br>
     <%= search_form_for @p, url: keyword_search_time_content_index_path do |f| %>
       <%= f.label :start_time_eq, '日付：' %> 
-      <%= f.collection_select :start_time_eq, @start_time, :start_time, :start_time, include_blank: '指定なし' %>
+      <%= f.collection_select :start_time_gteq, @start_time, :start_time, :start_time, include_blank: '指定なし' %>
+      ~
+      <%= f.collection_select :start_time_lteq, @start_time, :start_time, :start_time, include_blank: '指定なし' %>
       <br><br>
       <%= f.label :time_step_id_eq, '実施時間：' %> 
-      <%= f.collection_select :time_step_id_eq, TimeStep.all, :id, :name, include_blank: '指定なし' %> 
+      <%= f.collection_select :time_step_id_gteq, TimeStep.all, :id, :name, include_blank: '指定なし' %> 
+      ~
+      <%= f.collection_select :time_step_id_lteq, TimeStep.all, :id, :name, include_blank: '指定なし' %> 
       <br><br>
        <%= f.label :content_id_eq, '実施内容：' %> 
       <%= f.collection_select :content_id_eq, Content.all, :id, :name, include_blank: '指定なし' %> 
