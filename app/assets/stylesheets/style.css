@@ -695,6 +695,14 @@ a {
   margin-left: 50px;
 }
 
+.back_register__btn {
+  background: #32a6f3;
+  color: rgb(255, 255, 255);
+  border: 2px solid #32a6f3;
+  border-radius: 3px;
+  margin-right: 50px;
+}
+
 .detail_submit {
   font-size: 20px;
   background: #87CEFA;
