@@ -1,23 +1,32 @@
 <div class="detail-search_form">
   <h1 class="detail-search-title">詳細検索</h1><br><br>
     <%= search_form_for @p, url: keyword_search_time_content_index_path do |f| %>
-      <%= f.label :start_time_eq, '日付：' %> 
-      <%= f.collection_select :start_time_gteq, @start_time, :start_time, :start_time, include_blank: '指定なし' %>
-      ~
-      <%= f.collection_select :start_time_lteq, @start_time, :start_time, :start_time, include_blank: '指定なし' %>
-      <br><br>
-      <%= f.label :time_step_id_eq, '実施時間：' %> 
-      <%= f.collection_select :time_step_id_gteq, TimeStep.all, :id, :name, include_blank: '指定なし' %> 
-      ~
-      <%= f.collection_select :time_step_id_lteq, TimeStep.all, :id, :name, include_blank: '指定なし' %> 
-      <br><br>
-       <%= f.label :content_id_eq, '実施内容：' %> 
-      <%= f.collection_select :content_id_eq, Content.all, :id, :name, include_blank: '指定なし' %> 
-      <br><br>
+
+      <div class="start_time_field">
+        <%= f.label :start_time_eq, '日付：' %> 
+        <%= f.collection_select :start_time_gteq, @start_time, :start_time, :start_time, {include_blank: '指定なし'}, {class: "start_time_eq_from_search"} %>
+        <div class= "from_to">~</div>
+        <%= f.collection_select :start_time_lteq, @start_time, :start_time, :start_time, {include_blank: '指定なし'}, {class: "start_time_eq_to_search"} %>
+      </div><br><br>
+      
+      <div class="start_time_field">
+        <%= f.label :time_step_id_eq, '実施時間：' %> 
+        <%= f.collection_select :time_step_id_gteq, TimeStep.all, :id, :name, {include_blank: '指定なし'}, {class: "time_step_eq_from_search"} %> 
+        <div class= "from_to">~</div>
+        <%= f.collection_select :time_step_id_lteq, TimeStep.all, :id, :name, {include_blank: '指定なし'}, {class: "time_step_eq_to_search"} %> 
+      </div><br><br>
+      
+      <div class="content_field">
+        <%= f.label :content_id_eq, '実施内容：' %> 
+        <%= f.collection_select :content_id_eq, Content.all, :id, :name, {include_blank: '指定なし'}, {class: "content_eq_search"} %> 
+      </div><br><br>
+      
+      <div class="detail_field">
       <%= f.label :detail_cont, 'キーワード：' %> 
-      <%= f.text_field :detail_cont, class: 'input-box', placeholder:'キーワードから探す' %>
-      <br><br>
-        <%= f.submit '検索',class: "detail_submit" %> 
+      <%= f.text_field :detail_cont, class: 'input-box', placeholder:'キーワードから探す',class: "detail_cont_search" %>
+      </div><br><br>
+      
+      <%= f.submit '検索',class: "detail_submit" %> 
       <br><br><br>
     <% end %> 
     <%= link_to 'トップページへ戻る', root_path, class: "back_btn" %><br><br>
