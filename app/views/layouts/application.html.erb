@@ -11,14 +11,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
   </head>
 
+  <% if user_signed_in? %>
   <body onload=setTimeout('a()',1000)>
       <SCRIPT language="JavaScript">
-     <!--
+      <!--
+      
        function a() {
-           swal("仕事内容に登録のし忘れはありませんか？");
+         if (window.name != "http://localhost:3000/") {
+            
+          swal("仕事内容の登録し忘れはありませんか？");
+         
+          window.name = "http://localhost:3000/";
+         }
        }
      // -->
+    //  <!--
+    //    function a() {
+
+    //        swal("仕事内容の登録し忘れはありませんか？");
+    //    }
+    //  // -->
      </SCRIPT>
+  <% end %>
     <header class="header">
       <div class="inner">
         <div class="nav">
