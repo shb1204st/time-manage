@@ -1,5 +1,5 @@
 class TimeContentController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: :index
   before_action :set_time_content, only: [:show, :edit, :update, :destroy]
   before_action :move_into_index, only: [:show, :edit]
   before_action :search_time_content, only: [:index, :show, :keyword_search, :detail_search]
