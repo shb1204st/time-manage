@@ -1,5 +1,5 @@
 class TimeContentController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :guest_sign_in]
   before_action :set_time_content, only: [:show, :edit, :update, :destroy]
   before_action :move_into_index, only: [:show, :edit]
   before_action :search_time_content, only: [:index, :show, :keyword_search, :detail_search]
@@ -73,6 +73,17 @@ class TimeContentController < ApplicationController
   def detail_search
     @results = @p.result.includes(:user)
     set_detail_search_column
+  end
+
+  def guest_sign_in
+    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = 'ゲスト'
+      user.kana_name = 'ゲスト'
+      user.department = '社長'
+    end
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
   private
