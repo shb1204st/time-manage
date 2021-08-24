@@ -21,6 +21,11 @@
         <%= f.collection_select :content_id_eq, Content.all, :id, :name, {include_blank: '指定なし'}, {class: "content_eq_search"} %> 
       </div><br><br>
       
+      <div class="ensure_field">
+        <%= f.label :ensure_id_eq, '実施できる人：' %> 
+        <%= f.collection_select :ensure_id_eq, Ensure.all, :id, :name, {include_blank: '指定なし'}, {class: "ensure_eq_search"} %> 
+      </div><br><br>
+
       <div class="detail_field">
       <%= f.label :detail_cont, 'キーワード：' %> 
       <%= f.text_field :detail_cont, class: 'input-box', placeholder:'キーワードから探す',class: "detail_cont_search" %>

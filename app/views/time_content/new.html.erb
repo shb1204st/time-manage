@@ -7,22 +7,24 @@
     <%= f.label :今日の日付, {:class => "date_title_style"} %>
     <%= f.label :実施時間, {:class => "time_title_style"} %> 
     <%= f.label :実施内容, {:class => "content_title_style"} %>
+    <%= f.label :実施できる人, {:class => "ensure_title_style"} %>
   </div>
 
   <div class="time_and_content">
     <div class="date">
-      <%# <%= f.label :今日の日付 %> 
       <%= f.date_field :start_time, value: Date.today, class: "date_style"  %>
     </div>
 
-    <div class="time">
-      <%# <%= f.label :実施時間 %> 
+    <div class="time"> 
       <%= f.collection_select(:time_step_id, TimeStep.all, :id, :name, {}, {:class => "time_style"}) %>
     </div>
     
     <div class="content">
-      <%# <%= f.label :実施内容 %>
       <%= f.collection_select(:content_id, Content.all, :id, :name, {}, {:class => "content_style"}) %>
+    </div>
+
+    <div class="ensure">
+      <%= f.collection_select(:ensure_id, Ensure.all, :id, :name, {}, {:class => "ensure_style"}) %>
     </div>
   </div>
 
@@ -32,7 +34,6 @@
 
   <div class="time_and_content_detail" >
     <div class="detial">
-      <%# <%= f.label :仕事詳細 %>
       <%= f.text_area :detail, {:class => "detail_style"} %>
     </div>
   </div>
