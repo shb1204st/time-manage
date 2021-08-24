@@ -34,44 +34,47 @@
         <input type="checkbox" id="btn-text"/>
         <div class="hidden_show">
           <div class="graph_title">
-            <h3 class="day_graph_title">今日の仕事内容集計</h3>
-            <h3 class="week_graph_title">今週の仕事内容集計</h3>
-            <h3 class="last_month_graph_title">前月合計時間</h3>
-            <h3 class="month_graph_title">今月の仕事内容集計</h3>
+            <h3 class="day_graph_title">今日の仕事時間集計</h3>
+            <h3 class="day_reduce_graph_title">今日の削減可能時間集計</h3>
+            <h3 class="month_graph_title">今月の仕事時間集計</h3>
+            <h3 class="month_reduce_graph_title">今月の削減可能時間集計</h3>
           </div>
           <div class="graph">
             <%= pie_chart @content_day_graph_data, colors: @background_colors, width: "200px", class: "day_graph" %>
-            <%= pie_chart @content_week_graph_data, colors: @background_week_colors, width: "200px", class: "week_graph" %>
-            <%= pie_chart @content_last_month_graph_data, colors: @background_last_month_colors, width: "200px", class: "last_month_graph" %>
+            <%= pie_chart @content_day_reduce_graph_data, colors: @background_day_reduce_colors, width: "200px", class: "day_reduce_graph" %>
             <%= pie_chart @content_month_graph_data, colors: @background_month_colors, width: "200px", class: "month_graph" %>
+            <%= pie_chart @content_month_reduce_graph_data, colors: @background_month_reduce_colors, width: "200px", class: "month_reduce_graph" %>
           </div><br>
 
           <div class="total_time_title">
-            <div class="day_total_time_title">今日の仕事と合計時間<br>["内容",時間(単位:分)]<br><br>
+            <div class="day_total_time_title">今日の内容と合計時間<br>["内容",時間(単位:分)]<br><br>
               <% @day_total_time.each do |day_total_time| %>
                 <span class="total_time">
                   <%= day_total_time %>
                 </span>
               <% end %>
             </div>
-            <div class="week_total_time_title">今週の仕事と合計時間<br>["内容",時間(単位:分)]<br><br>
-              <% @week_total_time.each do |week_total_time| %>
+
+            <div class="day_reduce_total_time_title">今日の削減可能内容と時間<br>["内容",時間(単位:分)]<br><br>
+              <% @day_reduce_total_time.each do |day_reduce_total_time| %>
                 <span class="total_time">
-                  <%= week_total_time %>
+                  <%= day_reduce_total_time %>
                 </span>
               <% end %>
             </div>
-            <div class="last_month_total_time_title">前月の仕事と合計時間<br>["内容",時間(単位:分)]<br><br>
-              <% @last_month_total_time.each do |last_month_total_time| %>
-                <span class="total_time">
-                  <%= last_month_total_time %>
-                </span>
-              <% end %>
-            </div>
-            <div class="month_total_time_title">今月の仕事と合計時間<br>["内容",時間(単位:分)]<br><br>
+
+            <div class="month_total_time_title">今月の内容と合計時間<br>["内容",時間(単位:分)]<br><br>
               <% @month_total_time.each do |month_total_time| %>
                 <span class="total_time">
                   <%= month_total_time %>
+                </span>
+              <% end %>
+            </div>
+
+            <div class="month_reduce_total_time_title">今月の削減可能内容と時間<br>["内容",時間(単位:分)]<br><br>
+              <% @month_reduce_total_time.each do |month_reduce_total_time| %>
+                <span class="total_time">
+                  <%= month_reduce_total_time %>
                 </span>
               <% end %>
             </div>
