@@ -15,22 +15,24 @@ class TimeContentController < ApplicationController
                                                  start_time: @month).order('content_id ASC').background_color_content_data
 
     @content_month_reduce_graph_data = TimeContent.where(user_id: current_user, ensure_id: 3,
-                                                       start_time: @month).order('content_id ASC').content_data
+                                                         start_time: @month).order('content_id ASC').content_data
     @background_month_reduce_colors = TimeContent.where(user_id: current_user, ensure_id: 3,
-                                                      start_time: @month).order('content_id ASC').background_color_content_data
+                                                        start_time: @month).order('content_id ASC').background_color_content_data
 
-    @content_day_reduce_graph_data = TimeContent.where(user_id: current_user, ensure_id: 3, start_time: @day).order('content_id ASC').content_data
+    @content_day_reduce_graph_data = TimeContent.where(user_id: current_user, ensure_id: 3,
+                                                       start_time: @day).order('content_id ASC').content_data
     @background_day_reduce_colors = TimeContent.where(user_id: current_user, ensure_id: 3,
-                                                start_time: @day).order('content_id ASC').background_color_content_data
+                                                      start_time: @day).order('content_id ASC').background_color_content_data
 
     @content_day_graph_data = TimeContent.where(user_id: current_user, start_time: @day).order('content_id ASC').content_data
     @background_colors = TimeContent.where(user_id: current_user,
                                            start_time: @day).order('content_id ASC').background_color_content_data
 
     @day_total_time = TimeContent.where(user_id: current_user, start_time: @day).order('content_id ASC').content_data
-    @day_reduce_total_time = TimeContent.where(user_id: current_user,  ensure_id: 3, start_time: @day).order('content_id ASC').content_data
-    @month_reduce_total_time = TimeContent.where(user_id: current_user,  ensure_id: 3,
-                                               start_time: @month).order('content_id ASC').content_data
+    @day_reduce_total_time = TimeContent.where(user_id: current_user, ensure_id: 3,
+                                               start_time: @day).order('content_id ASC').content_data
+    @month_reduce_total_time = TimeContent.where(user_id: current_user, ensure_id: 3,
+                                                 start_time: @month).order('content_id ASC').content_data
     @month_total_time = TimeContent.where(user_id: current_user, start_time: @month).order('content_id ASC').content_data
   end
 
@@ -79,7 +81,8 @@ class TimeContentController < ApplicationController
   private
 
   def time_content_params
-    params.require(:time_content).permit(:start_time, :time_step_id, :content_id, :ensure_id, :detail).merge(user_id: current_user.id)
+    params.require(:time_content).permit(:start_time, :time_step_id, :content_id, :ensure_id,
+                                         :detail).merge(user_id: current_user.id)
   end
 
   def set_time_content
