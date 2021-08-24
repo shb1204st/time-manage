@@ -2,6 +2,7 @@ class TimeContent < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :time_step
   belongs_to :content
+  belongs_to :ensure
 
   class << self
     def content_data
@@ -41,6 +42,7 @@ class TimeContent < ApplicationRecord
   with_options numericality: { other_than: 1, message: 'を選択してください' } do
     validates :time_step_id, uniqueness: { scope: [:user_id, :time_step_id, :start_time] }
     validates :content_id
+    validates :ensure_id
   end
 
   with_options presence: true do
