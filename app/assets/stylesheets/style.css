@@ -202,8 +202,16 @@ a {
   justify-content: space-around;
 }
 
-.keyword_search_title {
+.new_content_btn_title {
   margin-left: 50px;
+}
+
+.keyword_search_title {
+  margin-left: 55px;
+}
+
+.detail_search_title {
+  margin-left: 15px;
 }
 
 .search_content {
@@ -337,6 +345,20 @@ a {
 
 .total_time {
   display: block;
+}
+
+
+.total_time_t {
+  display: flex;
+  justify-content: space-between;
+}
+
+.day_total_time_t {
+  margin-left: 30px;
+}
+
+.month_total_reduce_time_t {
+  margin-right: 20px;
 }
 
 .display_calendar {
