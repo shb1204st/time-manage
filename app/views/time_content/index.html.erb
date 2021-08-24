@@ -8,10 +8,16 @@
       <% end %>
       
       <h1 class="greeting">
+        今日は
+        <%= Date.today.strftime("%Y年%m月%d日") %>
+        です。<br>
         <%= current_user.name + "さん"%>
         <%= "、今日も一日頑張ろう！！" %><br><br>
       </h1>
       <div class="search_title">
+        <h2 class="new_content_btn_title">
+          新規登録ボタン
+        </h2>
         <h2 class="keyword_search_title">
           キーワード検索(仕事詳細内容)
         </h2>
@@ -20,6 +26,7 @@
         </h2>
       </div>
       <div class="search_content">
+        <%= link_to "時間内容新規登録", new_time_content_path, class: :nav_register__btn %>
         <%= search_form_for @p, url: keyword_search_time_content_index_path, class: "search-form", local: true do |f| %>
           <%= f.text_field :detail_cont, class: 'input-box', placeholder:'キーワードから探す' %>
           <button class="search-button">
@@ -34,48 +41,80 @@
         <input type="checkbox" id="btn-text"/>
         <div class="hidden_show">
           <div class="graph_title">
-            <h3 class="day_graph_title">今日の仕事内容集計</h3>
-            <h3 class="week_graph_title">今週の仕事内容集計</h3>
-            <h3 class="last_month_graph_title">前月合計時間</h3>
-            <h3 class="month_graph_title">今月の仕事内容集計</h3>
+            <h3 class="day_graph_title">今日の仕事時間集計</h3>
+            <h3 class="day_reduce_graph_title">今日の削減可能時間集計</h3>
+            <h3 class="month_graph_title">今月の仕事時間集計</h3>
+            <h3 class="month_reduce_graph_title">今月の削減可能時間集計</h3>
           </div>
           <div class="graph">
             <%= pie_chart @content_day_graph_data, colors: @background_colors, width: "200px", class: "day_graph" %>
-            <%= pie_chart @content_week_graph_data, colors: @background_week_colors, width: "200px", class: "week_graph" %>
-            <%= pie_chart @content_last_month_graph_data, colors: @background_last_month_colors, width: "200px", class: "last_month_graph" %>
+            <%= pie_chart @content_day_reduce_graph_data, colors: @background_day_reduce_colors, width: "200px", class: "day_reduce_graph" %>
             <%= pie_chart @content_month_graph_data, colors: @background_month_colors, width: "200px", class: "month_graph" %>
-          </div><br>
+            <%= pie_chart @content_month_reduce_graph_data, colors: @background_month_reduce_colors, width: "200px", class: "month_reduce_graph" %>
+          </div>
 
           <div class="total_time_title">
-            <div class="day_total_time_title">今日の仕事と合計時間<br>["内容",時間(単位:分)]<br><br>
-              <% @day_total_time.each do |day_total_time| %>
-                <span class="total_time">
-                  <%= day_total_time %>
-                </span>
-              <% end %>
+            <div class="day_total_time_title">今日の内容と合計時間<br>["内容",時間(単位:時間)]<br><br>
+                <% @day_total_time.each do |day_total_time| %>
+                  <span class="total_time">
+                    <%= day_total_time %>
+                  </span>
+                <% end %><br>
             </div>
-            <div class="week_total_time_title">今週の仕事と合計時間<br>["内容",時間(単位:分)]<br><br>
-              <% @week_total_time.each do |week_total_time| %>
+            <div class="day_reduce_total_time_title">今日の削減可能内容と時間<br>["内容",時間(単位:時間)]<br><br>
+              <% @day_reduce_total_time.each do |day_reduce_total_time| %>
                 <span class="total_time">
-                  <%= week_total_time %>
+                  <%= day_reduce_total_time %>
                 </span>
-              <% end %>
+              <% end %><br>
             </div>
-            <div class="last_month_total_time_title">前月の仕事と合計時間<br>["内容",時間(単位:分)]<br><br>
-              <% @last_month_total_time.each do |last_month_total_time| %>
-                <span class="total_time">
-                  <%= last_month_total_time %>
-                </span>
-              <% end %>
-            </div>
-            <div class="month_total_time_title">今月の仕事と合計時間<br>["内容",時間(単位:分)]<br><br>
+
+            <div class="month_total_time_title">今月の内容と合計時間<br>["内容",時間(単位:時間)]<br><br>
               <% @month_total_time.each do |month_total_time| %>
                 <span class="total_time">
                   <%= month_total_time %>
                 </span>
+              <% end %> <br>
+            </div>
+
+            <div class="month_reduce_total_time_title">今月の削減可能内容と時間<br>["内容",時間(単位:時間)]<br><br>
+              <% @month_reduce_total_time.each do |month_reduce_total_time| %>
+                <span class="total_time">
+                  <%= month_reduce_total_time %>
+                </span>
               <% end %>
             </div>
-          </div><br> 
+          </div>
+          <div class="total_time_t">
+            <div class="day_total_time_t">合計時間：
+              <% if @day_total_time.present?%>
+                <%= @day_total_time.values.inject(:+)%>時間
+              <% else %>
+                <%= @day_total_time.values.inject(:+)%>時間
+              <% end %>
+            </div>
+            <div calss="day_total_reduse_time_t">合計削減時間：
+              <% if @day_reduce_total_time.present?%>
+                <%= @day_reduce_total_time.values.inject(:+)%>時間
+              <% else %>
+                <%= @day_reduce_total_time.values.inject(:+)%>時間
+              <% end %>
+            </div>
+            <div class="month_total_time_t">合計時間：
+              <% if @month_total_time.present?%>
+                <%= @month_total_time.values.inject(:+)%>時間
+              <% else %>
+                <%= @month_total_time.values.inject(:+)%>時間
+              <% end %>
+            </div>
+            <div class="month_total_reduce_time_t">合計削減時間：
+              <% if @month_reduce_total_time.present?%>
+                <%= @month_reduce_total_time.values.inject(:+)%>時間
+              <% else %>
+                <%= @month_reduce_total_time.values.inject(:+)%>時間
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -97,9 +136,9 @@
     <% else %>
       <div class="no_signed_in">
         <h1 class="day_graph_explain">デモ表示</h1>
-        <img src="https://i.gyazo.com/e0c573405b617bb791bb4d7d19641415.png" alt="Image from Gyazo" width="1098"/></a>
+        <img src="https://i.gyazo.com/57ef6ee33f49426afb94ebd1d7bcaf5a.png" alt="Image from Gyazo" width="1115"/></a>
       </div><br>
-      <%= link_to "時間内容登録", new_time_content_path, class: :nav_register__btn %>
+      <%= link_to "時間内容新規登録", new_time_content_path, class: :nav_register__btn %>
        <div class="hidden_box">
         <label for="btn-text2">カレンダー表示/非表示</label><br><br>
         <input type="checkbox" id="btn-text2"/>
@@ -108,7 +147,7 @@
             <%= link_to date, new_time_content_path, class: :nav_date_register__btn %>
             <% time_contents.each do |time_content| %>
               <div>
-                <%= link_to time_content.content.name, time_content_path(time_content.id), class:"calendar_display" %>
+                <%= link_to time_content.content.name, time_content_path(time_content.id), class:"calendar_display", id:"calendar_color" %>
               </div>
             <% end %>
           <% end %>

@@ -62,10 +62,6 @@ a {
   opacity: 0.7;
 }
 
-.nav__right {
-  /* margin-left: 20px; */
-}
-
 .nav_in__btn{
   display: inline-block;
   padding: 0.2em 1em;
@@ -77,7 +73,6 @@ a {
   border-radius: 3px;
   transition: 0.4s ease;
   margin-bottom: 15px;
-
 }
 
 .nav_up__btn{
@@ -207,8 +202,16 @@ a {
   justify-content: space-around;
 }
 
-.keyword_search_title {
+.new_content_btn_title {
   margin-left: 50px;
+}
+
+.keyword_search_title {
+  margin-left: 55px;
+}
+
+.detail_search_title {
+  margin-left: 15px;
 }
 
 .search_content {
@@ -303,16 +306,17 @@ a {
   margin-left: 20px;
 }
 
-.week_graph_title{
+.day_reduce_graph_title{
+  margin-left: 40px;
   margin-right: 30px;
-}
-
-.last_month_graph_title{
-  margin-right: 25px;
 }
 
 .month_graph_title{
   margin-right: 25px;
+}
+
+.month_reduce_graph_title{
+  margin-right: 0px;
 }
 
 .total_time_title {
@@ -324,23 +328,37 @@ a {
   margin-left: 25px;
 }
 
-.week_total_time_title {
+.day_reduce_total_time_title {
   margin-left: 60px;
-  margin-right: 40px;
-}
-
-.last_month_total_time_title {
-  margin-left: 30px;
-  margin-right: 60px;
+  margin-right: 20px;
 }
 
 .month_total_time_title {
-  margin-right: 15px;
+  margin-left: 35px;
+  margin-right: 50px;
+}
+
+.month_reduce_total_time_title {
+  margin-left: 0px;
 }
 
 
 .total_time {
   display: block;
+}
+
+
+.total_time_t {
+  display: flex;
+  justify-content: space-between;
+}
+
+.day_total_time_t {
+  margin-left: 30px;
+}
+
+.month_total_reduce_time_t {
+  margin-right: 20px;
 }
 
 .display_calendar {
@@ -499,13 +517,17 @@ a {
 }
 
 .time_title_style {
-  margin-right: 45px;
+  margin-right: 60px;
   margin-left: 20px;
 }
 
 .content_title_style {
-  margin-right: 25px;
-  margin-left: 20px;
+  margin-right: 45px;
+  margin-left: 15px;
+}
+
+.ensure_title_style {
+  margin-left: px;
 }
 
 .time_content_detail_title_2 {
@@ -541,6 +563,12 @@ a {
 .detail_style {
   width: 500px;
   height: 100px; 
+  font-size: 20px;
+}
+
+.ensure_style {
+  width: 155px;
+  height: 50px;
   font-size: 20px;
 }
 
@@ -730,6 +758,11 @@ margin: 0 10px;
   width: 150px;
   height: 40px;
 }
+
+.ensure_eq_search {
+  width: 150px;
+  height: 40px;
+} 
 
 .detail_cont_search {
   width: 200px;
