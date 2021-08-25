@@ -6,7 +6,8 @@ ja:
         kana_name: カタカナの名前
         department: 部署
       time_content:
-        time_step_id: 実施時間
-        content_id: 実施内容
-        detail: 仕事詳細内容
-        start_time: 今日の日付
+        time_step_id: 「実施時間」
+        content_id: 「実施内容」
+        detail: 「仕事詳細内容」
+        ensure_id: 「実施できる人」
+        start_time: 「今日の日付」
