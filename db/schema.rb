@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_17_022655) do
+ActiveRecord::Schema.define(version: 2021_08_05_023350) do
 
   create_table "time_contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "time_step_id", null: false
     t.integer "content_id", null: false
     t.text "detail", null: false
     t.date "start_time", null: false
+    t.integer "ensure_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "ensure_id", null: false
     t.index ["user_id"], name: "index_time_contents_on_user_id"
   end
 
