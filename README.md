@@ -1,31 +1,142 @@
 # アプリケーション名
   Time Manage
 
+<br><br>
+
 # アプリケーション概要
-  何時にどのような仕事をしているかを入力し、詳細内容を記載する。
-  また、コメントを残し注意点や重要なことなどを書き残していく。
+  「時間」、「仕事内容」、「仕事の実施可能な人」を選択し、詳細内容を入力します。
+  内容を登録すると内容に伴った円グラフとそれぞれの内容の合計時間がトップページに表示されます。
+
+<br><br>
 
 # URL
   https://time-manage-1204.herokuapp.com/
 
-# テスト用アカウント
-   Basic認証 ID:toshimi, PW:1204
-   
-   ログイン   ID:       ,PW:
+<br><br>
 
-# 利用方法
-  新規登録を行い、アカウントを作成します。
-  アカウント作成後、トップページより「時間情報登録」ボタンを押し実施した仕事内容等を入力します。
-  入力内容が円グラフとなって現れて、どの仕事にそれだけ時間を使っているかを表してくれます。
-  トップページのカレンダーの日を押すと、その日の1日の情報が表示され、また編集や削除ができます。
+# テスト用アカウント
+   Basic認証 ID:toshimi , PW:1204
+   
+   <br><br>
+
+# 制作背景
+  前職において、自分が何にどれだけ時間をかけて仕事をしていてるかわからないことが多くありました。
+  また、他の人に任せることができる仕事が把握できておらず、仕事を任せることができず、長い時間働くことが多かったです。
+  ノートに仕事内容と時間を書き出し、時間と内容の把握しようとしましたが、あまり効果が得られませんでした。
+  その為、このアプリケーションによって時間把握と内容把握ができるようになればと思い作成しました。
+
+  <br><br>
 
 # 目指した課題解決
-  朝から晩まで仕事をしても仕事が終わらない人に対して、時間を創出できるようにし仕事を終わらせることができるようにつなげる。
-  まず、何にどれだけの時間の使っているかを把握を行います。入力している時間に、自分だけにしかできないことかや仕事のやり方について
-  工夫できることを考えコメントを残し、そのコメントを会社の人たちと共有できるようにして、誰でもできる仕事は時間がある人ができるようにする。
+  【時間把握と内容把握】
+
+  　グラフと数値を用いて見える化し、時間と内容の把握ができるようにしました。
+  
+  <br><br>
+
+# 利用方法
+
+  ## 【トップ画面】
+  ### ①ログイン前
+  [![Image from Gyazo](https://i.gyazo.com/118fc16088fe55b071e3b7f61cf2bed4.png)](https://gyazo.com/118fc16088fe55b071e3b7f61cf2bed4)
+
+  ログイン前のグラフデータは参考画像になっています。アプリケーションの使用には、ユーザー登録をしてログインが必要です。
+
+  ### ②ログイン後
+  [![Image from Gyazo](https://i.gyazo.com/5d7741e9c85f26a6983ba697aad3341d.gif)](https://gyazo.com/5d7741e9c85f26a6983ba697aad3341d)
+
+  ログイン後は、ユーザーのデータが表示されます。
+  またヘッダーに今日の日付とユーザー名が表示されて「ログインしました」の通知が出ます。
+  ※ブラウザを開いた初回時のみ「内容登録し忘れはありませんか」の通知が出ます。
+
+  <br>
+
+  ## 【ユーザー新規登録】
+  [![Image from Gyazo](https://i.gyazo.com/da6177c3a1deb533b7be66460f57afc8.png)](https://gyazo.com/da6177c3a1deb533b7be66460f57afc8)
+
+  ヘッダーの「新規登録」ボタンを押し、各項目を入力しアカウントを作成します。
+  
+  ※項目全てに入力が必要です。
+
+  <br>
+
+  ## 【内容登録】
+  ### ①内容登録画面に遷移
+  [![Image from Gyazo](https://i.gyazo.com/afa7f99322262ddbfd203ddff75bc188.gif)](https://gyazo.com/afa7f99322262ddbfd203ddff75bc188)
+
+  ### ②登録実施
+  [![Image from Gyazo](https://i.gyazo.com/f5e5cdb3d835b1bd5f0b99cbbad0a3c8.png)](https://gyazo.com/f5e5cdb3d835b1bd5f0b99cbbad0a3c8)
+  アカウント作成後もしくはログイン後、トップページの「時間内容新規登録」ボタンを押し、実施した仕事内容等を入力します。
+ 
+  ※全ての項目に対して選択もしくは入力が必要です。
+
+  <br>
+
+  ## 【グラフと数値の表示】
+  [![Image from Gyazo](https://i.gyazo.com/01c7510649f6c7526fb7a8faa40bba87.png)](https://gyazo.com/01c7510649f6c7526fb7a8faa40bba87)
+  内容を登録するとトップページに遷移し、入力内容に伴って円グラフと数値が表示されます。
+
+  ※グラフは、当日と当月のデータそして当日と当月の削減可能データの4つがあります。
+　 内容登録時に、選択事項の「実施できる人」にて「他の人も可能」を選択すると、削減可能データに表示されます。
+
+  <br>
+
+  ## 【内容の確認】
+  [![Image from Gyazo](https://i.gyazo.com/8c3dd2eb59ae1d3bf4679f856faf9960.gif)](https://gyazo.com/8c3dd2eb59ae1d3bf4679f856faf9960)
+  カレンダー日付内の仕事内容の項目を押すと、実施時間と内容等が表示される詳細ページに遷移し内容の確認ができます。詳細ページでは内容の編集と削除ができます。
+
+  <br>
+
+  ## 【内容の検索】
+  ### ①検索画面への遷移
+  [![Image from Gyazo](https://i.gyazo.com/80674432e7a4d382a40115cd239e5e79.gif)](https://gyazo.com/80674432e7a4d382a40115cd239e5e79)
+
+  ### ②検索実施（詳細検索について）
+  [![Image from Gyazo](https://i.gyazo.com/ccd45e5100ce5c77ca1cd07327310859.gif)](https://gyazo.com/ccd45e5100ce5c77ca1cd07327310859)
+
+  ・キーワード検索ではキーワードを入力し検索できます。
+
+  ・詳細検索は、詳細検索ボタンを押すと詳細検索ページに遷移し、内容を選択や入力して検索ができます。
+
+  <br><br>
+
+# 工夫した点
+  ①各グラフ表示の色を各仕事内容に指定し、全てのグラフで各内容の色が同じ色になるようにしました。
+
+  ②内容登録時に、選択項目の「実施できる人」で「他の人も可能」を選択すると、グラフ表示を「削減可能内容と時間」に表示されるようにしました。
+
+  <br><br>
 
 # 洗い出した要件
+下記URLをご参照ください。
 
+https://docs.google.com/spreadsheets/d/1J3cvIvpgbKKe6BRwGfpPvOU-3VfH1tf2Uere6GjK5GQ/edit#gid=282075926
+
+<br><br>
+
+# 使用技術（開発環境）
+バックエンド：Ruby、Ruby on Rails
+
+フロントエンド：HTML、CSS、JavaScript
+
+ソース管理：GitHub、GitHubDesktop
+
+テスト：RSpec
+
+エディタ：VScode
+
+カレンダー：'simple_calendar', '~> 2.0'
+
+グラフ：'chartkick'
+
+<br><br>
+
+# 今後の課題と実装したい機能
+  ①内容登録の時間項目を選択ではなく、入力するようにして登録を回数を少なくしていきたいです。
+
+  ②カレンダーの日付の枠ををクリックすると詳細内容が現れるようにしたいです。
+
+<br><br>
 
 
 # テーブル設計
@@ -39,36 +150,26 @@
 | department         | string | null: false               |
 | email              | string | null: false, unique: true |
 | encrypted_password | string | null: false               |
+|                                                         |
 
 ### association
 
-has_many :times
-has_many :comments
+has_many :time_contents
 
-## times テーブル
+<br>
 
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| time_id     | integer    | null: false                    |
-| content_id  | integer    | null: false                    |
-| detail      | text       | null: false                    |
-| start_time  | date       | null: false                    |
-| user        | references | null: false, foreign_key: true |
+## time_contents テーブル
 
-### association
-
-belongs_to :user
-has_many   :comments
-
-## comments テーブル
-
-| Column  | Type       | Options           |
-| ------- | ---------- | ----------------- |
-| text    | text       |                   |
-| user    | references | foreign_key: true |
-| room    | references | foreign_key: true |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| time_step_id | integer    | null: false                    |
+| content_id   | integer    | null: false                    |
+| insure_id    | integer    | null: false                    |
+| detail       | text       | null: false                    |
+| start_time   | date       | null: false                    |
+| user         | references | null: false, foreign_key: true |
+|                                                            |
 
 ### association
 
 belongs_to :user
-belongs_to :time
