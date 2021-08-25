@@ -42,6 +42,13 @@
             <% end %>
           </div>
           <% if user_signed_in? %>
+           <h2 class="greeting">
+            今日は
+            <%= Date.today.strftime("%Y年%m月%d日") %>
+            です。<br>
+            <%= current_user.name + "さん"%>
+            <%= "、今日も一日頑張ろう！！" %>
+          </h2>
             <div class="nav__right">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout, data: { confirm: 'ログアウトしますか？' } %>
             </div>

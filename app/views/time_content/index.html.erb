@@ -7,13 +7,6 @@
         </div>
       <% end %>
       
-      <h1 class="greeting">
-        今日は
-        <%= Date.today.strftime("%Y年%m月%d日") %>
-        です。<br>
-        <%= current_user.name + "さん"%>
-        <%= "、今日も一日頑張ろう！！" %><br><br>
-      </h1>
       <div class="search_title">
         <h2 class="new_content_btn_title">
           新規登録ボタン
@@ -136,7 +129,7 @@
     <% else %>
       <div class="no_signed_in">
         <h1 class="day_graph_explain">デモ表示</h1>
-        <img src="https://i.gyazo.com/57ef6ee33f49426afb94ebd1d7bcaf5a.png" alt="Image from Gyazo" width="1115"/></a>
+        <img src="https://i.gyazo.com/202009a460c4b4468ea3f4c779fe506a.png" alt="Image from Gyazo" width="1075"/></a>
       </div><br>
       <%= link_to "時間内容新規登録", new_time_content_path, class: :nav_register__btn %>
        <div class="hidden_box">
