@@ -81,7 +81,7 @@ class TimeContentController < ApplicationController
   private
 
   def time_content_params
-    params.require(:time_content).permit(:start_time, :time_step_id, :content_id, :ensure_id,
+    params.require(:time_content).permit(:start_time, :begin_time, :finish_time, :content_id, :ensure_id,
                                          :detail).merge(user_id: current_user.id)
   end
 
