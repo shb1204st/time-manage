@@ -12,7 +12,7 @@ module TimeManage
     config.load_defaults 6.0
 
     config.time_zone = 'Asia/Tokyo' 
-    config.active_record.default_timezone= :local
+    config.active_record.default_timezone = :local
     
     config.beginning_of_week = :sunday
 
