@@ -52,5 +52,21 @@ class TimeContent < ApplicationRecord
     validates :finish_time, uniqueness: { scope: [:user_id, :finish_time, :start_time] }
   end
 
+    validate :begin_finish_check
+    validate :begin_check
+    validate :finish_check
+  
+    def begin_finish_check
+      errors.add(:finish_time, "は開始時刻より遅い時間を選択してください") if begin_time > finish_time
+    end
+  
+    def begin_check
+      errors.add(:begin_time, "は現在時刻より早い時間を選択してください") if begin_time.strftime( "%H:%M" ) > Time.now.strftime( "%H:%M" )
+    end
+  
+    def finish_check
+      errors.add(:finish_time, "は現在時刻より早い時間を選択してください") if finish_time.strftime( "%H:%M" ) > Time.now.strftime( "%H:%M" )
+    end
+
   belongs_to :user
 end
