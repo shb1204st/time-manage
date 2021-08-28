@@ -5,18 +5,27 @@
 
   <div class="time_content_detail_title_1">
     <%= f.label :今日の日付, {:class => "date_title_style"} %>
-    <%= f.label :実施時間, {:class => "time_title_style"} %> 
+    <%= f.label :開始時間, {:class => "begin_time_title_style"} %>
+    <%= f.label :終了時間, {:class => "finish_time_title_style"} %> 
     <%= f.label :実施内容, {:class => "content_title_style"} %>
-     <%= f.label :実施できる人, {:class => "ensure_title_style"} %>
+    <%= f.label :実施できる人, {:class => "ensure_title_style"} %>
   </div>
 
   <div class="time_and_content">
     <div class="date">
-      <%= f.date_field :start_time, {:class => "date_style"}  %>
+      <% if @time_content.start_time == nil %>
+        <%= f.date_field :start_time, value: Date.today, class: "date_style"  %>
+      <% elsif @time_content.start_time != nil %>
+        <%= f.date_field :start_time, class: "date_style"  %>
+      <% end %>
     </div>
 
-    <div class="time">
-      <%= f.collection_select(:time_step_id, TimeStep.all, :id, :name, {}, {:class => "time_style"}) %>
+    <div class="begin_time"> 
+      <%= f.time_select(:begin_time, {class: "begin_time_style", prompt:'--', time_separator: ':', start_hour: 6, end_hour: 22, minute_step: 15}, ignore_data: true) %>
+    </div>
+
+    <div class="finish_time"> 
+      <%= f.time_select(:finish_time, {class: "finish_time_style", prompt:'--', time_separator: ':', start_hour: 6, end_hour: 22, minute_step: 15}, ignore_data: true) %>
     </div>
     
     <div class="content">
