@@ -1,6 +1,6 @@
 class TimeContent < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :time_step
+  # belongs_to :time_step
   belongs_to :content
   belongs_to :ensure
 
@@ -40,7 +40,7 @@ class TimeContent < ApplicationRecord
   end
 
   with_options numericality: { other_than: 1, message: 'を選択してください' } do
-    validates :time_step_id, uniqueness: { scope: [:user_id, :time_step_id, :start_time] }
+    # validates :time_step_id, uniqueness: { scope: [:user_id, :time_step_id, :start_time] }
     validates :content_id
     validates :ensure_id
   end
@@ -48,6 +48,8 @@ class TimeContent < ApplicationRecord
   with_options presence: true do
     validates :detail
     validates :start_time
+    validates :begin_time, uniqueness: { scope: [:user_id, :begin_time, :start_time] }
+    validates :finish_time, uniqueness: { scope: [:user_id, :finish_time, :start_time] }
   end
 
   belongs_to :user
