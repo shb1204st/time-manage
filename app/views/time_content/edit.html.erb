@@ -21,11 +21,11 @@
     </div>
 
     <div class="begin_time"> 
-      <%= f.time_select(:begin_time, {class: "begin_time_style", prompt:'--', time_separator: ':', start_hour: 6, end_hour: 22, minute_step: 15}, ignore_data: true) %>
+      <%= f.time_select(:begin_time, { prompt:'--', time_separator: ':', start_hour: 6, end_hour: 22, minute_step: 15, ignore_data: true}, {class: "begin_time_style"} ) %>
     </div>
-
+ 
     <div class="finish_time"> 
-      <%= f.time_select(:finish_time, {class: "finish_time_style", prompt:'--', time_separator: ':', start_hour: 6, end_hour: 22, minute_step: 15}, ignore_data: true) %>
+      <%= f.time_select(:finish_time, { prompt:'--', time_separator: ':', start_hour: 6, end_hour: 22, minute_step: 15, ignore_data: true}, {class: "begin_time_style"} ) %>
     </div>
     
     <div class="content">
