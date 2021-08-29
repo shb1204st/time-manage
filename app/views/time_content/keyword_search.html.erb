@@ -7,7 +7,7 @@
       <li class="searched-list">
         日付：<%= result.start_time %>
         <br>
-        実施時間： <%= result.time_step.name %> 
+        実施時間： <%= result.begin_time.strftime( "%H:%M" ) %>〜<%= result.finish_time.strftime( "%H:%M" ) %>
         <br>
         実施内容：<%= result.content.name %>
         <br>
