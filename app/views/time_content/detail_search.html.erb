@@ -10,10 +10,10 @@
       </div><br><br>
       
       <div class="start_time_field">
-        <%= f.label :time_step_id_eq, '実施時間：' %> 
-        <%= f.collection_select :time_step_id_gteq, TimeStep.all, :id, :name, {include_blank: '指定なし'}, {class: "time_step_eq_from_search"} %> 
-        <div class= "from_to">~</div>
-        <%= f.collection_select :time_step_id_lteq, TimeStep.all, :id, :name, {include_blank: '指定なし'}, {class: "time_step_eq_to_search"} %> 
+        <%= f.label :begin_time_eq, '実施時間：' %> 
+        <%= f.collection_select :begin_time_eq, @begin_time, :begin_time, :begin_time, {include_blank: '指定なし'}, {class: "time_step_eq_from_search"} %> 
+        <div class= "from_to">〜</div>
+        <%= f.collection_select :finish_time_eq, @finish_time, :finish_time, :finish_time, {include_blank: '指定なし'}, {class: "time_step_eq_to_search"} %> 
       </div><br><br>
       
       <div class="content_field">
