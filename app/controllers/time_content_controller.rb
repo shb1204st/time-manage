@@ -94,10 +94,12 @@ class TimeContentController < ApplicationController
   end
 
   def search_time_content
-    @p = TimeContent.where(user_id: current_user).order('start_time ASC', 'time_step_id ASC').ransack(params[:q])
+    @p = TimeContent.where(user_id: current_user).order('start_time ASC', 'begin_time ASC', 'finish_time ASC').ransack(params[:q])
   end
 
   def set_detail_search_column
     @start_time = TimeContent.where(user_id: current_user).select('start_time').order('start_time ASC').distinct
+    @begin_time = TimeContent.where(user_id: current_user).select('begin_time').order('begin_time ASC').distinct
+    @finish_time = TimeContent.where(user_id: current_user).select('finish_time').order('finish_time ASC').distinct
   end
 end
