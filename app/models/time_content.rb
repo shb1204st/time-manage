@@ -54,56 +54,59 @@ class TimeContent < ApplicationRecord
     validates :finish_time, uniqueness: { scope: [:user_id, :finish_time, :start_time] }
   end
 
-    validate :begin_finish_check
-    validate :begin_check
-    validate :finish_check
-    validate :begin_time_from_to
-    validate :finish_time_from_to
-    validate :begin_finish_not_overlap
-    
-    def begin_finish_check
-      if Date.today
-        errors.add(:finish_time, "は開始時刻より遅い時間を選択してください") if begin_time.strftime( "%H:%M" ) > finish_time.strftime( "%H:%M" )
-      end
-    end
-  
-    def begin_check
-      if Date.today
-        errors.add(:begin_time, "は現在時刻より早い時間を選択してください") if begin_time.strftime( "%H:%M" ) > Time.now.strftime( "%H:%M" )
-      end
-    end
-  
-    def finish_check
-      if Date.today
-        errors.add(:finish_time, "は現在時刻より早い時間を選択してください") if finish_time.strftime( "%H:%M" ) > Time.now.strftime( "%H:%M" )
-      end
-    end
+  validate :begin_finish_check
+  validate :begin_check
+  validate :finish_check
+  validate :begin_time_from_to
+  validate :finish_time_from_to
+  validate :begin_finish_not_overlap
 
-    def begin_time_from_to
-      errors.add(:begin_time, "は6時から21時45分までの時間を選択してください") if begin_time.strftime( "%H:%M" ) < "06:00" || begin_time.strftime( "%H:%M" ) > "21:45"
+  def begin_finish_check
+    if Date.today && (begin_time.strftime('%H:%M') > finish_time.strftime('%H:%M'))
+      errors.add(:finish_time, 'は開始時刻より遅い時間を選択してください')
     end
+  end
 
-    def finish_time_from_to
-      errors.add(:finish_time, "は6時15分から22時までの時間を選択してください") if finish_time.strftime( "%H:%M" ) < "06:15" || finish_time.strftime( "%H:%M" ) > "22:00"
+  def begin_check
+    errors.add(:begin_time, 'は現在時刻より早い時間を選択してください') if Date.today && (begin_time.strftime('%H:%M') > Time.now.strftime('%H:%M'))
+  end
+
+  def finish_check
+    errors.add(:finish_time, 'は現在時刻より早い時間を選択してください') if Date.today && (finish_time.strftime('%H:%M') > Time.now.strftime('%H:%M'))
+  end
+
+  def begin_time_from_to
+    if begin_time.strftime('%H:%M') < '06:00' || begin_time.strftime('%H:%M') > '21:45'
+      errors.add(:begin_time,
+                 'は6時から21時45分までの時間を選択してください')
     end
+  end
 
-    def begin_finish_not_overlap
-      return unless begin_time && finish_time
-
-      if TimeContent.where(user_id: user_id, start_time: start_time).where('begin_time < ?', finish_time).where('finish_time > ?', begin_time).where.not(id: id).exists?
-        errors.add(:base, '「開始時間」もしくは「終了時間」が登録済みの時間と重複しています')
-      end
+  def finish_time_from_to
+    if finish_time.strftime('%H:%M') < '06:15' || finish_time.strftime('%H:%M') > '22:00'
+      errors.add(:finish_time,
+                 'は6時15分から22時までの時間を選択してください')
     end
+  end
 
-    def set_time_zone
-      year = Date.today.year
-      month = Date.today.month
-      day = Date.today.day
-  
-      self.begin_time = self.begin_time.change(year: year, month: month, day: day)
-      self.finish_time = self.finish_time.change(year: year, month: month, day: day)
+  def begin_finish_not_overlap
+    return unless begin_time && finish_time
 
-    end  
+    if TimeContent.where(user_id: user_id, start_time: start_time).where('begin_time < ?', finish_time).where(
+      'finish_time > ?', begin_time
+    ).where.not(id: id).exists?
+      errors.add(:base, '「開始時間」もしくは「終了時間」が登録済みの時間と重複しています')
+    end
+  end
+
+  def set_time_zone
+    year = Date.today.year
+    month = Date.today.month
+    day = Date.today.day
+
+    self.begin_time = begin_time.change(year: year, month: month, day: day)
+    self.finish_time = finish_time.change(year: year, month: month, day: day)
+  end
 
   belongs_to :user
 end
