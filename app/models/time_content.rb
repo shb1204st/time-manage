@@ -68,11 +68,11 @@ class TimeContent < ApplicationRecord
   end
 
   def begin_check
-    errors.add(:begin_time, 'は現在時刻より早い時間を選択してください') if Date.today && (begin_time.strftime('%H:%M') > Time.now.strftime('%H:%M'))
+    errors.add(:begin_time, 'は現在時刻より早い時間を選択してください') if start_time.today? && (begin_time.strftime('%H:%M') > Time.now.strftime('%H:%M'))
   end
 
   def finish_check
-    errors.add(:finish_time, 'は現在時刻より早い時間を選択してください') if Date.today && (finish_time.strftime('%H:%M') > Time.now.strftime('%H:%M'))
+    errors.add(:finish_time, 'は現在時刻より早い時間を選択してください') if start_time.today? && (finish_time.strftime('%H:%M') > Time.now.strftime('%H:%M'))
   end
 
   def begin_time_from_to
