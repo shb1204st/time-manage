@@ -1,4 +1,6 @@
 class TimeContent < ApplicationRecord
+  before_save :set_time_zone
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   # belongs_to :time_step
   belongs_to :content
@@ -93,7 +95,15 @@ class TimeContent < ApplicationRecord
       end
     end
 
+    def set_time_zone
+      year = Date.today.year
+      month = Date.today.month
+      day = Date.today.day
+  
+      self.begin_time = self.begin_time.change(year: year, month: month, day: day)
+      self.finish_time = self.finish_time.change(year: year, month: month, day: day)
 
+    end  
 
   belongs_to :user
 end
