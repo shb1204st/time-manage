@@ -19,7 +19,9 @@
           </p>
           <p class="time_content__title">時間</p>
           <p class="time_content__message">
-            <%= @time_content.time_step.name %>
+            <%= @time_content.begin_time.strftime( "%H:%M" ) %>
+            〜
+            <%= @time_content.finish_time.strftime( "%H:%M" ) %>
           </p>
           <p class="time_content__title">内容</p>
           <p class="time_content__message">
