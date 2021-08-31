@@ -92,8 +92,8 @@ class TimeContent < ApplicationRecord
   def begin_finish_not_overlap
     return unless begin_time && finish_time
 
-    if TimeContent.where(user_id: user_id, start_time: start_time).where('begin_time < ?', finish_time).where(
-      'finish_time > ?', begin_time
+    if TimeContent.where(user_id: user_id, start_time: start_time).where('begin_time < ?', finish_time.strftime('%H:%M')).where(
+      'finish_time > ?', begin_time.strftime('%H:%M')
     ).where.not(id: id).exists?
       errors.add(:base, '「開始時間」もしくは「終了時間」が登録済みの時間と重複しています')
     end
