@@ -69,16 +69,29 @@
   ### ①内容登録画面に遷移
   [![Image from Gyazo](https://i.gyazo.com/afa7f99322262ddbfd203ddff75bc188.gif)](https://gyazo.com/afa7f99322262ddbfd203ddff75bc188)
 
+  ⇩
+
+  ### ①内容登録画面に遷移（時間選択部分変更）
+  [![Image from Gyazo](https://i.gyazo.com/4a6f0fdf9b1dd7bbd4c44cecf715d7d9.gif)](https://gyazo.com/4a6f0fdf9b1dd7bbd4c44cecf715d7d9)
+
+   <br>
+
   ### ②登録実施
   [![Image from Gyazo](https://i.gyazo.com/f5e5cdb3d835b1bd5f0b99cbbad0a3c8.png)](https://gyazo.com/f5e5cdb3d835b1bd5f0b99cbbad0a3c8)
   アカウント作成後もしくはログイン後、トップページの「時間内容新規登録」ボタンを押し、実施した仕事内容等を入力します。
- 
+
+  ⇩
+
+  ### ②登録実施（時間選択部分変更）
+ 　[![Image from Gyazo](https://i.gyazo.com/92d24d1176793bffe83372463af66a71.png)](https://gyazo.com/92d24d1176793bffe83372463af66a71)
+  時間は「6時〜22時」で、分は「0分・15分・30分・45分」と15分刻みで選択できるようにしています。
+
   ※全ての項目に対して選択もしくは入力が必要です。
 
   <br>
 
   ## 【グラフと数値の表示】
-  [![Image from Gyazo](https://i.gyazo.com/01c7510649f6c7526fb7a8faa40bba87.png)](https://gyazo.com/01c7510649f6c7526fb7a8faa40bba87)
+  [![Image from Gyazo](https://i.gyazo.com/fa040f179fd3062d627dacb01101f9af.png)](https://gyazo.com/fa040f179fd3062d627dacb01101f9af)
   内容を登録するとトップページに遷移し、入力内容に伴って円グラフと数値が表示されます。
 
   ※グラフは、当日と当月のデータそして当日と当月の削減可能データの4つがあります。
@@ -136,7 +149,7 @@ https://docs.google.com/spreadsheets/d/1J3cvIvpgbKKe6BRwGfpPvOU-3VfH1tf2Uere6GjK
 <br><br>
 
 # 今後の課題と実装したい機能
-  ①内容登録の時間項目を選択ではなく、入力するようにして登録を回数を少なくしていきたいです。
+  ①内容登録の時間項目を選択ではなく、入力するようにして登録を回数を少なくしていきたいです。⇨実装済み
 
   ②カレンダーの日付の枠ををクリックすると詳細内容が現れるようにしたいです。
 
@@ -166,7 +179,8 @@ has_many :time_contents
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| time_step_id | integer    | null: false                    |
+| begin_time   | time       | null: false                    |
+| finish_time  | time       | null: false
 | content_id   | integer    | null: false                    |
 | insure_id    | integer    | null: false                    |
 | detail       | text       | null: false                    |

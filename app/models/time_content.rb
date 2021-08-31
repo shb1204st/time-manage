@@ -68,11 +68,11 @@ class TimeContent < ApplicationRecord
   end
 
   def begin_check
-    errors.add(:begin_time, 'は現在時刻より早い時間を選択してください') if Date.today && (begin_time.strftime('%H:%M') > Time.now.strftime('%H:%M'))
+    errors.add(:begin_time, 'は現在時刻より早い時間を選択してください') if start_time.today? && (begin_time.strftime('%H:%M') > Time.now.strftime('%H:%M'))
   end
 
   def finish_check
-    errors.add(:finish_time, 'は現在時刻より早い時間を選択してください') if Date.today && (finish_time.strftime('%H:%M') > Time.now.strftime('%H:%M'))
+    errors.add(:finish_time, 'は現在時刻より早い時間を選択してください') if start_time.today? && (finish_time.strftime('%H:%M') > Time.now.strftime('%H:%M'))
   end
 
   def begin_time_from_to
@@ -92,8 +92,8 @@ class TimeContent < ApplicationRecord
   def begin_finish_not_overlap
     return unless begin_time && finish_time
 
-    if TimeContent.where(user_id: user_id, start_time: start_time).where('begin_time < ?', finish_time).where(
-      'finish_time > ?', begin_time
+    if TimeContent.where(user_id: user_id, start_time: start_time).where('begin_time < ?', finish_time.strftime('%H:%M')).where(
+      'finish_time > ?', begin_time.strftime('%H:%M')
     ).where.not(id: id).exists?
       errors.add(:base, '「開始時間」もしくは「終了時間」が登録済みの時間と重複しています')
     end
