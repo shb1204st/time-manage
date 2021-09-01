@@ -460,10 +460,10 @@ a {
   display: inline-block;
   padding: 0.2em 1em;
   font-size: 20px;
-  color: #87CEFA;
+  color: #f087fa;
   text-decoration: none;
   user-select: none;
-  border: 1px #87CEFA solid;
+  border: 1px #f087fa solid;
   border-radius: 3px;
   transition: 0.4s ease;
   margin-bottom: 15px;
@@ -472,7 +472,7 @@ a {
 
 .nav_check__btn :hover{
   color: #fff;
-  background: #87CEFA;
+  background: #f087fa;
 }
 
 .nav_date_register__btn{
