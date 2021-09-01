@@ -110,8 +110,10 @@
           </div>
         </div>
       </div>
-
-      <%= link_to "時間内容新規登録", new_time_content_path, class: :nav_register__btn %>
+      <div class="re_ch_btn">
+        <%= link_to "時間内容新規登録", new_time_content_path, class: :nav_register__btn %>
+        <%= link_to "その他データ内容確認", past_record_time_content_index_path, class: :nav_check__btn %>
+      </div>
       <div class="hidden_box">
         <label for="btn-text2">カレンダー表示/非表示</label><br><br>
         <input type="checkbox" id="btn-text2"/>
