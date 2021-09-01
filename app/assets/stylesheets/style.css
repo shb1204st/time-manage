@@ -888,13 +888,17 @@ margin: 0 10px;
 }
 
 .each_hidden_box .hidden_show {
-  padding: 10px 0;
-  height: auto;
-  opacity: 1;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.8s;
 }
 
 .each_hidden_box input:checked ~ .hidden_show {
-  display: none;
+  padding: 10px 0;
+  height: auto;
+  opacity: 1;
 }
 
 .each_record_graph_title {
