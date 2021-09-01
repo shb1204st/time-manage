@@ -866,6 +866,37 @@ margin: 0 10px;
   font-size: 50px;
   margin-bottom: 50px;
 }
+
+.each_hidden_box {
+  margin: 2em 0;/*前後の余白*/
+  padding: 0;
+}
+
+.each_hidden_box label {
+  padding: 15px;
+  font-weight: bold;
+  border: solid 2px black;
+  cursor :pointer;
+}
+
+.each_hidden_box label:hover {
+  background: #efefef;
+}
+
+.each_hidden_box input {
+  display: none;
+}
+
+.each_hidden_box .hidden_show {
+  padding: 10px 0;
+  height: auto;
+  opacity: 1;
+}
+
+.each_hidden_box input:checked ~ .hidden_show {
+  display: none;
+}
+
 .each_record_graph_title {
   display: flex;
   justify-content: space-evenly;
