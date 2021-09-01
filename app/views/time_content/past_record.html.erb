@@ -2,9 +2,58 @@
   <div class="inner">
     <h1 class="each_record_title">その他データ内容</h1>
 
+    <div class="each_hidden_box">
+      <label for="btn-text6">昨日のグラフ 表示/非表示</label><br><br>
+      <input type="checkbox" id="btn-text6"/>
+      <div class="hidden_show">
+        <div class="each_record_graph_title">
+          <h2 class="yesterday_graph_title">昨日の仕事時間集計</h2>
+          <h2 class="yesterday_reduce_graph_title">昨日の削減可能時間集計</h2>
+        </div>
+        <div class="each_record_graph">
+          <%= pie_chart @content_yesterday_graph_data, colors: @background_yesterday_colors, width: "250px", class: "day_graph" %>
+          <%= pie_chart @content_yesterday_reduce_graph_data, colors: @background_yesterday_reduce_colors, width: "250px", class: "day_reduce_graph" %>
+        </div><br>
+
+        <div class="each_record_total_time_title">
+          <div class="yesterday_total_time_title">【今週の内容と合計時間】<br><br>
+              <% @yesterday_total_time.each do |yesterday_total_time| %>
+                <span class="each_record_total_time">
+                  <%= yesterday_total_time[0] %>：<%= yesterday_total_time[1] %>時間
+                </span>
+              <% end %><br>
+          </div>
+          <div class="yesterday_reduce_total_time_title">【今週の削減可能内容と時間】<br><br>
+            <% @yesterday_reduce_total_time.each do |yesterday_reduce_total_time| %>
+              <span class="each_record_total_time">
+                <%= yesterday_reduce_total_time[0] %>：<%= yesterday_reduce_total_time[1] %>時間
+              </span>
+            <% end %><br>
+          </div>
+        </div>
+        <div class="each_record_total_time_t">
+          <div class="yesterday_total_time_t">合計時間：
+            <% if @yesterday_total_time.present?%>
+              <%= @yesterday_total_time.values.inject(:+)%>時間
+            <% else %>
+              <%= @yesterday_total_time.values.inject(:+)%>時間
+            <% end %>
+          </div>
+          <div calss="yesterday_total_reduse_time_t">合計削減時間：
+            <% if @yesterday_reduce_total_time.present?%>
+              <%= @yesterday_reduce_total_time.values.inject(:+)%>時間
+            <% else %>
+              <%= @yesterday_reduce_total_time.values.inject(:+)%>時間
+            <% end %>
+          </div>
+        </div><br><br><br>
+      </div>
+    </div>
+
+
 
     <div class="each_hidden_box">
-      <label for="btn-text4">今週グラフ表示/非表示</label><br><br>
+      <label for="btn-text4">今週のグラフ 表示/非表示</label><br><br>
       <input type="checkbox" id="btn-text4"/>
       <div class="hidden_show">
         <div class="each_record_graph_title">
@@ -53,7 +102,7 @@
 
 
     <div class="each_hidden_box">
-      <label for="btn-text3">先週グラフ表示/非表示</label><br><br>
+      <label for="btn-text3">先週のグラフ 表示/非表示</label><br><br>
       <input type="checkbox" id="btn-text3"/>
       <div class="hidden_show">
         <div class="each_record_graph_title">
@@ -104,7 +153,7 @@
 
 
     <div class="each_hidden_box">
-      <label for="btn-text5">先月グラフ表示/非表示</label><br><br>
+      <label for="btn-text5">先月のグラフ 表示/非表示</label><br><br>
       <input type="checkbox" id="btn-text5"/>
       <div class="hidden_show">
         <div class="each_record_graph_title">
