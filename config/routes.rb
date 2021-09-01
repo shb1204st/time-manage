@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :time_content do
     collection do
      get 'keyword_search', 'detail_search'
+     get 'past_record'
     end
   end
 
