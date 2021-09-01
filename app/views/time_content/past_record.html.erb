@@ -2,58 +2,9 @@
   <div class="inner">
     <h1 class="each_record_title">その他データ内容</h1>
 
-    <div class="each_hidden_box">
-      <label for="btn-text3">グラフ表示/非表示</label>
-      <input type="checkbox" id="btn-text3"/>
-      <div class="hidden_show">
-        <div class="each_record_graph_title">
-          <h2 class="last_week_graph_title">先週の仕事時間集計</h2>
-          <h2 class="last_week_reduce_graph_title">先週の削減可能時間集計</h2>
-        </div>
-        
-        <div class="each_record_graph">
-          <%= pie_chart @content_last_week_graph_data, colors: @background_last_week_colors, width: "250px", class: "last_week_graph" %>
-          <%= pie_chart @content_last_week_reduce_graph_data, colors: @background_last_week_reduce_colors, width: "250px", class: "last_week_reduce_graph" %>
-        </div><br>
-
-        <div class="each_record_total_time_title">
-          <div class="last_week_total_time_title">【先週の内容と合計時間】<br><br>
-              <% @last_week_total_time.each do |last_week_total_time| %>
-                <span class="each_record_total_time">
-                  <%= last_week_total_time[0] %>：<%= last_week_total_time[1] %>時間
-                </span>
-              <% end %><br>
-          </div>
-          <div class="last_week_reduce_total_time_title">【先週の削減可能内容と時間】<br><br>
-            <% @last_week_reduce_total_time.each do |last_week_reduce_total_time| %>
-              <span class="each_record_total_time">
-                <%= last_week_reduce_total_time[0] %>：<%= last_week_reduce_total_time[1] %>時間
-              </span>
-            <% end %><br>
-          </div>
-        </div>
-        <div class="each_record_total_time_t">
-          <div class="last_week_total_time_t">合計時間：
-            <% if @last_week_total_time.present?%>
-              <%= @last_week_total_time.values.inject(:+)%>時間
-            <% else %>
-              <%= @last_week_total_time.values.inject(:+)%>時間
-            <% end %>
-          </div>
-          <div calss="last_week_total_reduse_time_t">合計削減時間：
-            <% if @last_week_reduce_total_time.present?%>
-              <%= @last_week_reduce_total_time.values.inject(:+)%>時間
-            <% else %>
-              <%= @last_week_reduce_total_time.values.inject(:+)%>時間
-            <% end %>
-          </div>
-        </div><br><br><br>
-      </div>
-    </div>
-
 
     <div class="each_hidden_box">
-      <label for="btn-text4">グラフ表示/非表示</label>
+      <label for="btn-text4">今週グラフ表示/非表示</label><br><br>
       <input type="checkbox" id="btn-text4"/>
       <div class="hidden_show">
         <div class="each_record_graph_title">
@@ -102,7 +53,58 @@
 
 
     <div class="each_hidden_box">
-      <label for="btn-text5">グラフ表示/非表示</label>
+      <label for="btn-text3">先週グラフ表示/非表示</label><br><br>
+      <input type="checkbox" id="btn-text3"/>
+      <div class="hidden_show">
+        <div class="each_record_graph_title">
+          <h2 class="last_week_graph_title">先週の仕事時間集計</h2>
+          <h2 class="last_week_reduce_graph_title">先週の削減可能時間集計</h2>
+        </div>
+        
+        <div class="each_record_graph">
+          <%= pie_chart @content_last_week_graph_data, colors: @background_last_week_colors, width: "250px", class: "last_week_graph" %>
+          <%= pie_chart @content_last_week_reduce_graph_data, colors: @background_last_week_reduce_colors, width: "250px", class: "last_week_reduce_graph" %>
+        </div><br>
+
+        <div class="each_record_total_time_title">
+          <div class="last_week_total_time_title">【先週の内容と合計時間】<br><br>
+              <% @last_week_total_time.each do |last_week_total_time| %>
+                <span class="each_record_total_time">
+                  <%= last_week_total_time[0] %>：<%= last_week_total_time[1] %>時間
+                </span>
+              <% end %><br>
+          </div>
+          <div class="last_week_reduce_total_time_title">【先週の削減可能内容と時間】<br><br>
+            <% @last_week_reduce_total_time.each do |last_week_reduce_total_time| %>
+              <span class="each_record_total_time">
+                <%= last_week_reduce_total_time[0] %>：<%= last_week_reduce_total_time[1] %>時間
+              </span>
+            <% end %><br>
+          </div>
+        </div>
+        <div class="each_record_total_time_t">
+          <div class="last_week_total_time_t">合計時間：
+            <% if @last_week_total_time.present?%>
+              <%= @last_week_total_time.values.inject(:+)%>時間
+            <% else %>
+              <%= @last_week_total_time.values.inject(:+)%>時間
+            <% end %>
+          </div>
+          <div calss="last_week_total_reduse_time_t">合計削減時間：
+            <% if @last_week_reduce_total_time.present?%>
+              <%= @last_week_reduce_total_time.values.inject(:+)%>時間
+            <% else %>
+              <%= @last_week_reduce_total_time.values.inject(:+)%>時間
+            <% end %>
+          </div>
+        </div><br><br><br>
+      </div>
+    </div>
+
+
+
+    <div class="each_hidden_box">
+      <label for="btn-text5">先月グラフ表示/非表示</label><br><br>
       <input type="checkbox" id="btn-text5"/>
       <div class="hidden_show">
         <div class="each_record_graph_title">
