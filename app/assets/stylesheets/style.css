@@ -437,6 +437,10 @@ a {
   margin-bottom: 50px;
 }
 
+.re_ch_btn {
+  display: flex;
+}
+
 .nav_register__btn{
   display: inline-block;
   padding: 0.2em 1em;
@@ -449,6 +453,26 @@ a {
   transition: 0.4s ease;
   margin-bottom: 15px;
   margin-left: 20px;
+  margin-right: 50px;
+}
+
+.nav_check__btn{
+  display: inline-block;
+  padding: 0.2em 1em;
+  font-size: 20px;
+  color: #f087fa;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #f087fa solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+  margin-bottom: 15px;
+  margin-left: 20px;
+}
+
+.nav_check__btn :hover{
+  color: #fff;
+  background: #f087fa;
 }
 
 .nav_date_register__btn{
@@ -833,6 +857,73 @@ margin: 0 10px;
 
 .more_list {
   margin-bottom: 20px;
+}
+
+/*各データ確認*/
+.each_record_title {
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+.each_hidden_box {
+  margin: 2em 0;/*前後の余白*/
+  padding: 0;
+}
+
+.each_hidden_box label {
+  padding: 15px;
+  font-weight: bold;
+  border: solid 2px black;
+  cursor :pointer;
+}
+
+.each_hidden_box label:hover {
+  background: #efefef;
+}
+
+.each_hidden_box input {
+  display: none;
+}
+
+.each_hidden_box .hidden_show {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.8s;
+}
+
+.each_hidden_box input:checked ~ .hidden_show {
+  padding: 10px 0;
+  height: auto;
+  opacity: 1;
+}
+
+.each_record_graph_title {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.each_record_graph {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.each_record_total_time_title {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.each_record_total_time{
+  display: block;
+  margin-left: 30px;
+}
+
+.each_record_total_time_t {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 

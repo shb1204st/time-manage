@@ -112,9 +112,21 @@
   ### ②検索実施（詳細検索について）
   [![Image from Gyazo](https://i.gyazo.com/ccd45e5100ce5c77ca1cd07327310859.gif)](https://gyazo.com/ccd45e5100ce5c77ca1cd07327310859)
 
-  ・キーワード検索ではキーワードを入力し検索できます。
+  ・キーワード検索では仕事内容の詳細で入力したキーワードを入力し検索できます。
 
   ・詳細検索は、詳細検索ボタンを押すと詳細検索ページに遷移し、内容を選択や入力して検索ができます。
+
+  <br><br>
+
+  ## 【その他データ内容確認】
+  ### ①その他データ内容確認への遷移
+  [![Image from Gyazo](https://i.gyazo.com/11d036c6cea5253226c3efd54f23868f.gif)](https://gyazo.com/11d036c6cea5253226c3efd54f23868f)
+  ### ②内容確認
+  [![Image from Gyazo](https://i.gyazo.com/3099a51957e0d2ac00d7d9174b9ff361.gif)](https://gyazo.com/3099a51957e0d2ac00d7d9174b9ff361)
+  
+  ・初めは全て非表示にしています。
+
+  ・「昨日」「今週」「先週」「先月」3つのグラフデータ、仕事内容と合計時間が確認できます。
 
   <br><br>
 
