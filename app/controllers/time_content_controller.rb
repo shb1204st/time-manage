@@ -88,35 +88,43 @@ class TimeContentController < ApplicationController
                                                       start_time: @yesterday).order('content_id ASC').content_data
     @background_yesterday_colors = TimeContent.where(user_id: current_user,
                                                      start_time: @yesterday).order('content_id ASC').background_color_content_data
+    
+    @content_week_graph_data = TimeContent.where(user_id: current_user, 
+                                                start_time: @week).order('content_id ASC').content_data
+    @background_week_colors = TimeContent.where(user_id: current_user,
+                                                start_time: @week).order('content_id ASC').background_color_content_data
 
     @content_last_week_graph_data = TimeContent.where(user_id: current_user,
                                                       start_time: @last_week).order('content_id ASC').content_data
     @background_last_week_colors = TimeContent.where(user_id: current_user,
                                                      start_time: @last_week).order('content_id ASC').background_color_content_data
 
-    @content_last_week_reduce_graph_data = TimeContent.where(user_id: current_user, ensure_id: 3,
+    @content_last_month_graph_data = TimeContent.where(user_id: current_user,
                                                              start_time: @last_week).order('content_id ASC').content_data
-    @background_month_reduce_colors = TimeContent.where(user_id: current_user, ensure_id: 3,
+    @background_last_month_colors = TimeContent.where(user_id: current_user,
                                                         start_time: @last_week).order('content_id ASC').background_color_content_data
-
-    @content_week_graph_data = TimeContent.where(user_id: current_user, start_time: @week).order('content_id ASC').content_data
-    @background_week_colors = TimeContent.where(user_id: current_user,
-                                                start_time: @week).order('content_id ASC').background_color_content_data
-
+                                                       
+    @content_yesterday_reduce_graph_data = TimeContent.where(user_id: current_user, ensure_id: 3,
+                                                          start_time: @yesterday).order('content_id ASC').content_data
+    @background_yesterday_reduce_colors = TimeContent.where(user_id: current_user, ensure_id: 3,
+                                                         start_time: @yesterday).order('content_id ASC').background_color_content_data
+  
     @content_week_reduce_graph_data = TimeContent.where(user_id: current_user, ensure_id: 3,
                                                         start_time: @week).order('content_id ASC').content_data
     @background_week_reduce_colors = TimeContent.where(user_id: current_user, ensure_id: 3,
                                                        start_time: @week).order('content_id ASC').background_color_content_data
 
-    @content_last_month_graph_data = TimeContent.where(user_id: current_user,
-                                                       start_time: @last_month).order('content_id ASC').content_data
-    @background_last_month_colors = TimeContent.where(user_id: current_user,
-                                                      start_time: @last_month).order('content_id ASC').background_color_content_data
+    @content_last_week_reduce_graph_data = TimeContent.where(user_id: current_user, ensure_id: 3,
+                                                       start_time: @last_week).order('content_id ASC').content_data
+    @background_last_week_reduce_colors = TimeContent.where(user_id: current_user, ensure_id: 3,
+                                                      start_time: @last_week).order('content_id ASC').background_color_content_data
 
     @content_last_month_reduce_graph_data = TimeContent.where(user_id: current_user, ensure_id: 3,
                                                               start_time: @last_month).order('content_id ASC').content_data
     @background_last_month_reduce_colors = TimeContent.where(user_id: current_user, ensure_id: 3,
                                                              start_time: @last_month).order('content_id ASC').background_color_content_data
+
+
 
     @yesterday_total_time = TimeContent.where(user_id: current_user, start_time: @yesterday).order('content_id ASC').content_data
     @yesterday_reduce_total_time = TimeContent.where(user_id: current_user, ensure_id: 3,
