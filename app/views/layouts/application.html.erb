@@ -89,6 +89,16 @@
             }
           }
         }
+
+        if(location.href === "http://localhost:3000/") {
+          if(hours === 19) {
+            if(minutes >= 45 && minutes <= 59) {
+              if(seconds >= 0 && seconds < 10) {
+                swal("もうすぐ20時です！！そろそろ、帰りませんか？？");
+              }
+            }
+          }
+        }
      </script>
   </body>
 </html>
