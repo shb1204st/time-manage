@@ -66,5 +66,29 @@
     <footer class="footer">
       <p class="copyright">Copyright © TIME MANAGE All rights reserved.</p>
     </footer>
+    <script>
+      const hours = new Date().getHours();
+      const minutes = new Date().getMinutes();
+      const seconds = new Date().getSeconds();
+        if(location.href === "http://localhost:3000/") {
+          if(hours === 15) {
+            if(minutes >= 0 && minutes < 15) {
+              if(seconds >= 0 && seconds < 10) {
+                swal("休憩してはどうですか？？");
+              }
+            }
+          }
+        }
+
+        if(location.href === "http://localhost:3000/") {
+          if(hours === 17) {
+            if(minutes >= 15 && minutes < 25) {
+              if(seconds >= 0 && seconds < 10) {
+                swal("定時まで後少し、がんばれ！！");
+              }
+            }
+          }
+        }
+     </script>
   </body>
 </html>
