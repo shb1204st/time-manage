@@ -926,6 +926,13 @@ margin: 0 10px;
   justify-content: space-evenly;
 }
 
+.yesterday_total_time_t {
+  margin-right: 180px;
+}
+
+.week_total_time_t {
+  margin-right: 30px;
+}
 
 /* ユーザーページ */
 .user__wrapper{

@@ -3,13 +3,16 @@
     <h1 class="each_record_title">その他データ内容</h1>
 
     <div class="each_hidden_box">
-      <label for="btn-text6">昨日もしくは金曜日のグラフ 表示/非表示</label><br><br>
+      <label for="btn-text6">昨日・金曜日・土曜日のグラフ 表示/非表示</label><br><br>
       <input type="checkbox" id="btn-text6"/>
-      <div class="hidden_show">※土日に仕事がなければ、月曜日開いた際は「金曜日のグラフ」を表示
+      <div class="hidden_show">※土日に仕事がなければ、月曜日開いた際は「金曜日のグラフ」を表示<br>※土曜日に仕事があった場合、月曜日開いた際は「土曜日のグラフ」を表示<br>
         <div class="each_record_graph_title">
-          <% if ((Date.today.sunday) && (@task_saturday.length == 0)) && ((Date.today.next_occurring(:monday) || Date.today.monday) && (@task_saturday.length == 0) && (@task_sunday.length == 0)) %>
+          <% if ((Date.today.sunday?) && (@task_saturday.length == 0)) && ((Date.today.next_occurring(:monday) || Date.today.monday?) && (@task_saturday.length == 0) && (@task_sunday.length == 0)) %>
             <h2 class="yesterday_graph_title">金曜日の仕事時間集計</h2>
             <h2 class="yesterday_reduce_graph_title">金曜日の削減可能時間集計</h2>
+          <% elsif ((Date.today.monday?) && (@task_saturday.length > 0) && (@task_sunday.length == 0)) %>
+            <h2 class="yesterday_graph_title">土曜日の仕事時間集計</h2>
+            <h2 class="yesterday_reduce_graph_title">土曜日の削減可能時間集計</h2>
           <% else%>
             <h2 class="yesterday_graph_title">昨日の仕事時間集計</h2>
             <h2 class="yesterday_reduce_graph_title">昨日の削減可能時間集計</h2>
@@ -19,7 +22,10 @@
           <% if ((Date.today.sunday) && (@task_saturday.length == 0)) && ((Date.today.next_occurring(:monday) || Date.today.monday) && (@task_saturday.length == 0) && (@task_sunday.length == 0)) %>
             <%= pie_chart @content_friday_graph_data, colors: @background_friday_colors, width: "250px", class: "day_graph" %>
             <%= pie_chart @content_friday_reduce_graph_data, colors: @background_friday_reduce_colors, width: "250px", class: "day_reduce_graph" %>
-           <% else %> 
+          <% elsif ((Date.today.monday?) && (@task_saturday.length > 0) && (@task_sunday.length == 0)) %>
+            <%= pie_chart @content_saturday_graph_data, colors: @background_saturday_colors, width: "250px", class: "day_graph" %>
+            <%= pie_chart @content_saturday_reduce_graph_data, colors: @background_saturday_reduce_colors, width: "250px", class: "day_reduce_graph" %>
+          <% else %> 
             <%= pie_chart @content_yesterday_graph_data, colors: @background_yesterday_colors, width: "250px", class: "day_graph" %>
             <%= pie_chart @content_yesterday_reduce_graph_data, colors: @background_yesterday_reduce_colors, width: "250px", class: "day_reduce_graph" %>
           <% end %>
@@ -31,6 +37,14 @@
               <% @friday_total_time.each do |friday_total_time| %>
                 <span class="each_record_total_time">
                   <%= friday_total_time[0] %>：<%= friday_total_time[1] %>時間
+                </span>
+              <% end %><br>
+            </div>
+          <% elsif ((Date.today.monday?) && (@task_saturday.length > 0) && (@task_sunday.length == 0)) %>
+            <div class="yesterday_total_time_title">【土曜日の内容と合計時間】<br><br>
+              <% @saturday_total_time.each do |saturday_total_time| %>
+                <span class="each_record_total_time">
+                  <%= saturday_total_time[0] %>：<%= saturday_total_time[1] %>時間
                 </span>
               <% end %><br>
             </div>
@@ -49,6 +63,14 @@
               <% @friday_reduce_total_time.each do |friday_reduce_total_time| %>
                 <span class="each_record_total_time">
                   <%= friday_reduce_total_time[0] %>：<%= friday_reduce_total_time[1] %>時間
+                </span>
+              <% end %><br>
+            </div>
+          <% elsif ((Date.today.monday?) && (@task_saturday.length > 0) && (@task_sunday.length == 0)) %>
+            <div class="yesterday_reduce_total_time_title">【土曜日の削減可能内容と時間】<br><br>
+              <% @saturday_reduce_total_time.each do |saturday_reduce_total_time| %>
+                <span class="each_record_total_time">
+                  <%= saturday_reduce_total_time[0] %>：<%= saturday_reduce_total_time[1] %>時間
                 </span>
               <% end %><br>
             </div>
@@ -77,6 +99,21 @@
                 <%= @friday_reduce_total_time.values.inject(:+)%>時間
               <% else %>
                 <%= @friday_reduce_total_time.values.inject(:+)%>時間
+              <% end %>
+            </div>
+          <% elsif ((Date.today.monday?) && (@task_saturday.length > 0) && (@task_sunday.length == 0)) %>
+             <div class="yesterday_total_time_t">合計時間：
+              <% if @saturday_total_time.present?%>
+                <%= @saturday_total_time.values.inject(:+)%>時間
+              <% else %>
+                <%= @saturday_total_time.values.inject(:+)%>時間
+              <% end %>
+            </div>
+            <div calss="yesterday_total_reduse_time_t">合計削減時間：
+              <% if @saturday_reduce_total_time.present?%>
+                <%= @saturday_reduce_total_time.values.inject(:+)%>時間
+              <% else %>
+                <%= @saturday_reduce_total_time.values.inject(:+)%>時間
               <% end %>
             </div>
           <% else%>
@@ -131,7 +168,7 @@
           </div>
         </div>
         <div class="each_record_total_time_t">
-          <div class="weel_total_time_t">合計時間：
+          <div class="week_total_time_t">合計時間：
             <% if @week_total_time.present?%>
               <%= @week_total_time.values.inject(:+)%>時間
             <% else %>
