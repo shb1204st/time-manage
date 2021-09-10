@@ -133,6 +133,11 @@ a {
   opacity: 0.5;
 }
 
+.counter {
+  color: #ce3c96;
+  font-size: 15px;
+}
+
 /* フォーム周り */
 .form__wrapper{
   min-height: calc(100vh - 161px);
