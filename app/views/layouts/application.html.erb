@@ -44,10 +44,12 @@
           <% if user_signed_in? %>
            <h2 class="greeting">
             今日は
-            <%= Date.today.strftime("%Y年%m月%d日") %>
-            です。<br>
+            <%= Date.today.strftime("%Y年%m月%d日") %>です。<br>
             <%= current_user.name + "さん"%>
             <%= "、今日も一日頑張ろう！！" %>
+            <% if (Time.now.strftime('%H:%M') >= '15:00') && (Time.now.strftime('%H:%M') < '17:30') %>
+              <p class="counter">定時時間(17:30)まで残り<span class="counter_timer" id="timer"></span>です。</p>
+            <% end %>
           </h2>
             <div class="nav__right">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout, data: { confirm: 'ログアウトしますか？' } %>
@@ -99,6 +101,37 @@
             }
           }
         }
+
+        function countdown(due) {
+          const now = new Date();
+
+          const rest = due.getTime() - now.getTime();
+          const sec = Math.floor(rest / 1000) % 60;
+          const min = Math.floor(rest / 1000 / 60) % 60;
+          const hour = Math.floor(rest / 1000 / 60 / 60) % 24;
+          const day = Math.floor(rest / 1000 / 60 / 60 / 24);
+          const count = [day, hour, min, sec];
+
+          return count;
+        }
+
+        let goal = new Date();
+        goal.setHours(17);
+        goal.setMinutes(30);
+        goal.setSeconds(59);
+
+        function recalc() {
+          const counter = countdown(goal);
+          const time = `${counter[1]}時間${counter[2]}分${counter[3]}秒`;
+          document.getElementById('timer').textContent = time;
+          refresh();
+        }
+
+        function refresh() {
+          setTimeout(recalc,1000)
+        }
+
+        recalc();
      </script>
   </body>
 </html>
