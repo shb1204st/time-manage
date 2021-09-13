@@ -1,5 +1,5 @@
 class TimeContentController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :support_content_registration, :support_search, :support_record, :support_calender]
   before_action :set_time_content, only: [:show, :edit, :update, :destroy]
   before_action :move_into_index, only: [:show, :edit]
   before_action :search_time_content, only: [:index, :show, :keyword_search, :detail_search]
@@ -172,6 +172,18 @@ class TimeContentController < ApplicationController
                                                       start_time: @last_month).order('content_id ASC').content_data
     @last_month_total_time = TimeContent.where(user_id: current_user,
                                                start_time: @last_month).order('content_id ASC').content_data
+  end
+
+  def support_content_registration
+  end
+
+  def support_search
+  end
+
+  def support_recorde
+  end
+
+  def support_calender
   end
 
   private
