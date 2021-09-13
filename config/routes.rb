@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     collection do
      get 'keyword_search', 'detail_search'
      get 'past_record'
+     get 'support_content_registration'
+     get 'support_search'
+     get 'support_record'
+     get 'support_calender'
     end
   end
 
