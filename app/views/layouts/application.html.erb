@@ -9,6 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700,900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
 
   <% if user_signed_in? %>
@@ -132,6 +133,17 @@
         }
 
         recalc();
-     </script>
+    </script>
+
+    <script>
+      'use strict'
+
+      $(document).ready(function(){
+        $('.submenu h2').on('click', function(){
+          $(this).next().toggleClass('hidden');
+        } 
+        );
+      });
+    </script>
   </body>
 </html>
