@@ -130,6 +130,18 @@
       </div>
     <% else %>
       <div class="no_signed_in">
+        <div class="sidebar">
+            <h1>説明ページ</h1>
+            <div class="submenu">
+              <h2> 基本的な使い方（クリックしてください）</h2>
+              <ul class="hidden">
+                <li><%=link_to "- 内容登録",  support_content_registration_time_content_index_path %></li>
+                <li><%=link_to "- 検索機能",   support_search_time_content_index_path %></li>
+                <li><%=link_to "- 過去内容確認",  support_record_time_content_index_path %></li>
+                <li><%=link_to "- カレンダー確認",  support_calender_time_content_index_path %></li>
+              </ul>
+            </div>
+          </div>
         <h1 class="day_graph_explain">デモ表示</h1>
         <img src="https://i.gyazo.com/202009a460c4b4468ea3f4c779fe506a.png" alt="Image from Gyazo" width="1075"/></a>
       </div><br>
